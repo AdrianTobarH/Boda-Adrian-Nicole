@@ -244,17 +244,13 @@
   <script>
     // ====== CONFIG ======
     const WEDDING = {
-      couple: {
-        groom: "Javier Adrián Tobar Hanze",
-        bride: "Nicole Stefanie Benalcazar García"
-      },
-      dateISO: "2026-05-15T16:00:00-05:00", // ajusta tu zona horaria
+      couple: { groom: "Javier Adrián Tobar Hanze", bride: "Nicole Stephanie Benalcazar García" },
+      dateISO: "2026-05-15T16:00:00-05:00",
       ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
-      receptionMap: "#", // agrega el link cuando esté definido
+      receptionMap: "#",
       giftLinks: ["#", "#"],
       photosFolder: "https://example.com/fotos",
-      // REEMPLAZA por tu Apps Script desplegado como Web App
-      rsvpEndpoint: \"YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL\",
+      rsvpEndpoint: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL",
       defaultGuestLimit: 0
     };
 
@@ -269,7 +265,11 @@
     }
     if (code) document.getElementById('code').value = code;
 
-    // Countdown
+    // ===== Countdown seguro (sin IDs globales) =====
+    const dEl = document.getElementById('dLeft');
+    const hEl = document.getElementById('hLeft');
+    const mEl = document.getElementById('mLeft');
+    const sEl = document.getElementById('sLeft');
     function updateCountdown(){
       const target = new Date(WEDDING.dateISO).getTime();
       const now = Date.now();
@@ -278,7 +278,7 @@
       const h = Math.floor(diff/3600000); diff -= h*3600000;
       const m = Math.floor(diff/60000); diff -= m*60000;
       const s = Math.floor(diff/1000);
-      dLeft.textContent=d; hLeft.textContent=h; mLeft.textContent=m; sLeft.textContent=s;
+      if(dEl){dEl.textContent=d} if(hEl){hEl.textContent=h} if(mEl){mEl.textContent=m} if(sEl){sEl.textContent=s}
     }
     setInterval(updateCountdown,1000); updateCountdown();
 
@@ -316,8 +316,12 @@ END:VCALENDAR`;
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
       })
+    }, { root:null, rootMargin:'0px', threshold:0.05 }); io.unobserve(e.target); }
+      })
     }, { threshold:.15 });
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    // Fallback: si algo rompe JS antes de observer, muestra el hero
+    document.querySelector('header.hero')?.classList.add('visible');
 
     // ==== Mostrar/ocultar RSVP ====
     const openBtn = document.getElementById('openRSVP');
@@ -330,6 +334,7 @@ END:VCALENDAR`;
 
     // ==== Música ====
     const music = document.getElementById('music');
+    if(music){ music.loop = true; }
     const musicBtn = document.getElementById('musicBtn');
     musicBtn.addEventListener('click', ()=>{
       if(music.paused){ music.play(); musicBtn.classList.add('playing'); }
