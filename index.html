@@ -10,13 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#8B1E2D; /* vino tinto */
-      --accent-2:#E6B8B8; /* rosado suave */
-      --leaf:#386641; /* verde */
-      --ink:#1F2937;  /* gris-azul texto */
-      --paper:#FAF7F2; /* fondo papel */
-      --shadow: 0 10px 24px rgba(0,0,0,.12);
-      --radius: 18px;
+      --accent:#8B1E2D; --accent-2:#E6B8B8; --leaf:#386641;
+      --ink:#1F2937; --paper:#FAF7F2; --shadow:0 10px 24px rgba(0,0,0,.12);
+      --radius:18px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";scroll-behavior:smooth}
@@ -42,14 +38,12 @@
 
     .btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:600;cursor:pointer;text-decoration:none}
     .btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+    .btn[disabled]{opacity:.6;cursor:not-allowed}
 
     .timeline{position:relative;margin-left:14px}
     .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
     .t-item{position:relative;padding-left:28px;margin:16px 0}
     .t-dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
-
-    .gallery{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
-    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px}
 
     form label{display:block;font-weight:600;margin:12px 0 6px}
     input,select,textarea{width:100%;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff}
@@ -64,7 +58,6 @@
     .reveal.visible{opacity:1;transform:translateY(0)}
     .delay-1{transition-delay:.1s}
     .delay-2{transition-delay:.2s}
-    .delay-3{transition-delay:.3s}
 
     .hidden{display:none}
 
@@ -72,10 +65,15 @@
     .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
     .music-btn.playing{background:var(--accent);color:#fff}
 
-    @media (max-width:860px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-img{min-height:320px}
-    }
+    /* Cards de regalos */
+    .gift-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+    .gift{border:1px solid #eee;border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+    .gift img{width:100%;height:140px;object-fit:cover}
+    .gift .g-body{padding:10px;display:flex;flex-direction:column;gap:8px}
+    .g-meta{font-size:12px;color:#6b7280}
+    .g-link{font-size:12px}
+    .g-reserved{color:#065f46;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;padding:6px 8px}
+    .g-error{color:#9b1c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:6px 8px}
   </style>
 </head>
 <body>
@@ -90,7 +88,6 @@
           <p class="subtitle">¡Nos casamos! Acompáñanos a celebrar nuestro amor.</p>
           <p class="date">15 · MAYO · 2026</p>
 
-          <!-- Countdown -->
           <div class="countdown">
             <div class="pill"><b id="dLeft">0</b><small>DÍAS</small></div>
             <div class="pill"><b id="hLeft">0</b><small>HORAS</small></div>
@@ -119,6 +116,8 @@
           <h2 class="title">Recepción</h2>
           <p class="subtitle">20:00 · Lugar por confirmar</p>
           <p>Después de la ceremonia, celebremos bailando y brindando por el amor.</p>
+          <p><strong>No niños</strong></p>
+          <p class="subtitle">Amamos a los niños, pero hemos reservado sitios solo para adultos. Niños, dulces sueños.</p>
           <a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
         </article>
       </div>
@@ -128,10 +127,10 @@
     <section class="section two-col">
       <article class="card reveal delay-1">
         <h2 class="title">Código de vestimenta</h2>
-        <p>
-          <strong>Formal</strong>: Mujeres de largo · Hombres de traje. Reservamos el blanco para la novia.
-          <br><small><em>Mujeres</em>: evitar rojo, beige, plateado, crema y gris. <em>Hombres</em>: evitar azul claro.</small>
-        </p>
+        <p><strong>Formal</strong></p>
+        <p><strong>Mujeres:</strong> de vestido largo · evitar vestidos rojo, beige, plateado, crema y gris.</p>
+        <p><strong>Hombres:</strong> de traje · evitar azul claro.</p>
+        <p>Reservamos el blanco para la novia.</p>
       </article>
       <article class="card reveal delay-2">
         <h2 class="title">Itinerario</h2>
@@ -149,11 +148,10 @@
     <section class="section two-col">
       <article class="card reveal delay-1">
         <h2 class="title">Mesa de regalos</h2>
-        <p>Tu presencia es nuestro mejor regalo. Para quienes deseen acompañarnos también con un detalle, hemos preparado una lista de artículos de hogar. Si lo prefieren, pueden hacerlo con sobre cerrado. ¡Gracias por su cariño!</p>
-        <ul id="giftList" style="margin:8px 0 14px 18px"></ul>
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-          <a class="btn" href="#" id="gift1" target="_blank" rel="noopener">Ver lista de regalos</a>
-          <img id="giftQR" alt="QR lista de regalos" style="width:110px;height:110px;border-radius:12px;display:none"/>
+        <p>Tu presencia es nuestro mejor regalo. Para quienes deseen acompañarnos también con un detalle, hemos preparado una lista básica de artículos del hogar. Si lo prefieren, pueden hacerlo con sobre cerrado. ¡Gracias por su cariño!</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px">
+          <button class="btn" id="openGifts" type="button">Ver lista de regalos</button>
+          <button class="btn ghost" id="openBanks" type="button">Ver datos para transferencia</button>
         </div>
       </article>
       <article class="card reveal delay-2">
@@ -217,8 +215,10 @@
             </div>
           </div>
 
-          <label>Nombres de acompañantes</label>
-          <textarea name="guestNames" id="guestNames" placeholder="Ej.: Juan Pérez; María Gómez"></textarea>
+          <div id="guestNamesWrap">
+            <label>Nombres de acompañantes</label>
+            <textarea name="guestNames" id="guestNames" placeholder="Ej.: Juan Pérez; María Gómez"></textarea>
+          </div>
 
           <label>Mensaje</label>
           <textarea name="message" id="message" placeholder="Déjanos unas palabras…"></textarea>
@@ -240,6 +240,16 @@
     </footer>
   </div>
 
+  <!-- MODAL -->
+  <div id="modalBackdrop" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50"></div>
+  <div id="modal" class="hidden" style="position:fixed;left:0;right:0;top:6vh;margin:auto;max-width:860px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:22px;z-index:51">
+    <h3 class="title" id="modalTitle">Título</h3>
+    <div id="modalBody" class="subtitle">Contenido</div>
+    <div style="text-align:right;margin-top:14px">
+      <button class="btn" id="closeModal" type="button">Cerrar</button>
+    </div>
+  </div>
+
   <!-- MÚSICA -->
   <audio id="music" preload="auto" src="./music/tema.mp3"></audio>
   <button id="musicBtn" class="music-btn" aria-label="Reproducir música">♪</button>
@@ -252,40 +262,44 @@
       ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
       receptionMap: "#",
       photosFolder: "https://example.com/fotos",
-      // Lista de regalos (tu Sheet publicado como CSV)
-      giftsLink: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBR2eNpZ6ERC6w6VB8tBPlg3JgPumCIRO3RE7fXJ-laAVd_zS8e1DCbVwmg7UB8vpBoz_87SbtlAAI/pub?gid=1383828952&single=true&output=csv",
-      giftsEndpoint: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBR2eNpZ6ERC6w6VB8tBPlg3JgPumCIRO3RE7fXJ-laAVd_zS8e1DCbVwmg7UB8vpBoz_87SbtlAAI/pub?gid=1383828952&single=true&output=csv",
-      // Apps Script Web App (RSVP)
+      // Apps Script Web App
       rsvpEndpoint: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec",
+      // API de regalos (GET ?mode=gifts para listar, POST {action:'reserveGift'} para reservar)
+      giftsApiBase: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec",
       defaultGuestLimit: 0
     };
 
+    // --------- util modal ----------
+    const modal = document.getElementById('modal');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModalBtn = document.getElementById('closeModal');
+    function openModal(title, html){
+      modalTitle.textContent = title;
+      modalBody.innerHTML = html;
+      modal.classList.remove('hidden');
+      modalBackdrop.classList.remove('hidden');
+    }
+    function closeModal(){ modal.classList.add('hidden'); modalBackdrop.classList.add('hidden'); }
+    closeModalBtn.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+
     // Personalización por querystring (?to=Nombre&code=XYZ&limit=N)
     const params = new URLSearchParams(location.search);
-    const to = params.get('to');
-    const code = params.get('code');
-    const limitParam = Number(params.get('limit'));
-    if (to) {
-      document.getElementById('greeting').textContent = `Para: ${to}`;
-      document.getElementById('name').value = to;
-      document.getElementById('invitee').value = to;
-    }
+    const to = params.get('to'); const code = params.get('code'); const limitParam = Number(params.get('limit'));
+    if (to) { greeting.textContent = `Para: ${to}`; name.value = to; invitee.value = to; }
     if (code) document.getElementById('code').value = code;
 
     // Countdown
-    const dEl = document.getElementById('dLeft');
-    const hEl = document.getElementById('hLeft');
-    const mEl = document.getElementById('mLeft');
-    const sEl = document.getElementById('sLeft');
     function updateCountdown(){
-      const target = new Date(WEDDING.dateISO).getTime();
-      const now = Date.now();
-      let diff = Math.max(0, target - now);
-      const d = Math.floor(diff/86400000); diff -= d*86400000;
-      const h = Math.floor(diff/3600000); diff -= h*3600000;
-      const m = Math.floor(diff/60000); diff -= m*60000;
+      const t = new Date(WEDDING.dateISO).getTime(), now=Date.now();
+      let diff = Math.max(0, t-now);
+      const d = Math.floor(diff/86400000); diff-=d*86400000;
+      const h = Math.floor(diff/3600000); diff-=h*3600000;
+      const m = Math.floor(diff/60000); diff-=m*60000;
       const s = Math.floor(diff/1000);
-      if(dEl){dEl.textContent=d} if(hEl){hEl.textContent=h} if(mEl){mEl.textContent=m} if(sEl){sEl.textContent=s}
+      dLeft.textContent=d; hLeft.textContent=h; mLeft.textContent=m; sLeft.textContent=s;
     }
     setInterval(updateCountdown,1000); updateCountdown();
 
@@ -294,54 +308,36 @@
     receptionMap.href = WEDDING.receptionMap;
     photosLink.href = WEDDING.photosFolder;
 
-    // Mesa de Regalos: lee CSV publicado o JSON
-    (async () => {
-      const listEl = document.getElementById('giftList');
-      try{
-        const res = await fetch(WEDDING.giftsEndpoint, {mode:'cors'});
-        if(!res.ok) throw new Error('No se pudo leer la lista');
-        const text = await res.text();
-        let items;
-        if (/output=csv/i.test(WEDDING.giftsEndpoint)) {
-          const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
-          const headers = rows.shift().map(h => h.trim().toLowerCase());
-          items = rows.map(r => {
-            const obj = {};
-            headers.forEach((h,i)=> obj[h] = (r[i]||'').trim());
-            return obj;
-          });
-        } else {
-          items = JSON.parse(text);
-        }
-        listEl.innerHTML = '';
-        (Array.isArray(items)? items: []).forEach(obj => {
-          if (typeof obj === 'string') obj = { name: obj };
-          const li = document.createElement('li');
-          li.style.margin = '4px 0';
-          li.textContent = obj.name || '';
-          if(obj.note){ li.innerHTML += ` – <small>${obj.note}</small>` }
-          if(obj.link){
-            const a = document.createElement('a');
-            a.href = obj.link; a.target = '_blank'; a.rel = 'noopener'; a.textContent = ' (ver)';
-            li.appendChild(a);
-          }
-          listEl.appendChild(li);
-        });
-      }catch(err){
-        listEl.innerHTML = '<li>No se pudo cargar la lista por ahora.</li>';
-      }
-      // QR y botón
-      if(WEDDING.giftsLink){
-        gift1.href = WEDDING.giftsLink;
-        giftQR.src = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(WEDDING.giftsLink)}`;
-        giftQR.style.display = 'block';
-      }
-    })();
+    // Animaciones
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
+    }, { threshold:0.05 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    document.querySelector('header.hero')?.classList.add('visible');
 
-    // Add-to-calendar (.ics)
+    // Límite de acompañantes y mostrar/ocultar nombres
+    const guestLimit = Number.isFinite(limitParam) ? limitParam : (WEDDING.defaultGuestLimit||0);
+    guestLimitLabel.textContent = guestLimit;
+    guests.innerHTML = '';
+    for(let i=0;i<=guestLimit;i++){
+      const opt = document.createElement('option');
+      opt.value = String(i); opt.textContent = i===0 ? 'Sólo yo' : `+${i}`;
+      guests.appendChild(opt);
+    }
+    const guestNamesWrap = document.getElementById('guestNamesWrap');
+    function toggleGuestNames(){ guestNamesWrap.style.display = (Number(guests.value||0)===0)?'none':''; if(guestNamesWrap.style.display==='none'){guestNames.value='';} }
+    toggleGuestNames(); guests.addEventListener('change', toggleGuestNames);
+
+    // Música
+    if(music){ music.loop = true; }
+    musicBtn.addEventListener('click', ()=>{ if(music.paused){ music.play(); musicBtn.classList.add('playing'); } else { music.pause(); musicBtn.classList.remove('playing'); }});
+
+    // Abrir RSVP
+    openRSVP.addEventListener('click', ()=>{ rsvp.classList.remove('hidden'); rsvp.scrollIntoView({behavior:'smooth'}); try{ music.play(); musicBtn.classList.add('playing'); }catch{} });
+
+    // .ics
     function buildICS(){
-      const start = new Date(WEDDING.dateISO);
-      const end = new Date(start.getTime() + 2*60*60*1000);
+      const start = new Date(WEDDING.dateISO), end = new Date(start.getTime()+2*60*60*1000);
       const dt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
       const ics = `BEGIN:VCALENDAR
 VERSION:2.0
@@ -360,79 +356,103 @@ END:VCALENDAR`;
     }
     addCalendar.href = buildICS();
 
-    // Animaciones al hacer scroll
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      });
-    }, { root:null, rootMargin:'0px', threshold:0.05 });
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    document.querySelector('header.hero')?.classList.add('visible'); // fallback
-
-    // Límite de acompañantes
-    const guestLimit = Number.isFinite(limitParam) ? limitParam : (WEDDING.defaultGuestLimit||0);
-    const limitLabel = document.getElementById('guestLimitLabel');
-    const guestsSel = document.getElementById('guests');
-    if(limitLabel){ limitLabel.textContent = guestLimit; }
-    if(guestsSel){
-      guestsSel.innerHTML = '';
-      for(let i=0;i<=guestLimit;i++){
-        const opt = document.createElement('option');
-        opt.value = String(i);
-        opt.textContent = i===0 ? 'Sólo yo' : `+${i}`;
-        guestsSel.appendChild(opt);
-      }
-    }
-
-    // Mostrar/ocultar RSVP
-    const openBtn = document.getElementById('openRSVP');
-    openBtn.addEventListener('click', ()=>{
-      document.getElementById('rsvp').classList.remove('hidden');
-      document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});
-      try{ music.play(); musicBtn.classList.add('playing'); }catch{}
-    });
-
-    // Música
-    const music = document.getElementById('music');
-    if(music){ music.loop = true; }
-    const musicBtn = document.getElementById('musicBtn');
-    musicBtn.addEventListener('click', ()=>{
-      if(music.paused){ music.play(); musicBtn.classList.add('playing'); }
-      else{ music.pause(); musicBtn.classList.remove('playing'); }
-    });
-
     // Envío RSVP
-    const form = document.getElementById('rsvpForm');
-    const formMsg = document.getElementById('formMsg');
-    form.addEventListener('submit', async (e)=>{
+    rsvpForm.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      formMsg.textContent = 'Enviando…'; formMsg.className='subtitle';
-      const data = Object.fromEntries(new FormData(form).entries());
-      // Validación de acompañantes
-      const selectedGuests = Number(data.guests||0);
+      formMsg.textContent='Enviando…'; formMsg.className='subtitle';
+      const data = Object.fromEntries(new FormData(rsvpForm).entries());
+      const selected = Number(data.guests||0);
       const names = (data.guestNames||'').split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean);
-      if(selectedGuests>0 && names.length !== selectedGuests){
-        formMsg.innerHTML = '<span class="err">Indica exactamente los nombres de tus '+selectedGuests+' acompañantes (separados por coma o punto y coma).</span>';
-        return;
-      }
-      if(selectedGuests > guestLimit){
-        formMsg.innerHTML = '<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>';
-        return;
-      }
+      if(selected>0 && names.length!==selected){ formMsg.innerHTML='<span class="err">Indica exactamente los nombres de tus '+selected+' acompañantes.</span>'; return; }
+      if(selected>guestLimit){ formMsg.innerHTML='<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>'; return; }
       data.timestamp = new Date().toISOString();
       try{
-        const res = await fetch(WEDDING.rsvpEndpoint,{
-          method:'POST',
-          mode:'cors',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify(data)
+        const res = await fetch(WEDDING.rsvpEndpoint,{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+        if(!res.ok) throw new Error();
+        formMsg.innerHTML='<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
+        rsvpForm.reset(); toggleGuestNames();
+      }catch{ formMsg.innerHTML='<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>'; }
+    });
+
+    // ------- Ventana de REGALOS con fotos + reservar -------
+    document.getElementById('openGifts').addEventListener('click', async ()=>{
+      openModal('Lista de regalos', `<div class="subtitle">Cargando…</div>`);
+      try{
+        const url = WEDDING.giftsApiBase + '?mode=gifts';
+        const res = await fetch(url, {mode:'cors'});
+        const gifts = await res.json(); // [{id,name,image,link,reservedBy,reservedEmail,reservedAt}]
+        if(!Array.isArray(gifts) || gifts.length===0){
+          modalBody.innerHTML = '<p class="subtitle">Aún no hay regalos cargados.</p>'; return;
+        }
+        const grid = document.createElement('div'); grid.className='gift-grid';
+        gifts.forEach(g=>{
+          const card = document.createElement('div'); card.className='gift';
+          const img = document.createElement('img'); img.src = g.image || 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=640&q=60'; img.alt=g.name||'Regalo';
+          const body = document.createElement('div'); body.className='g-body';
+          const name = document.createElement('div'); name.innerHTML = `<strong>${g.name||''}</strong>`;
+          const meta = document.createElement('div'); meta.className='g-meta';
+          const link = document.createElement('a'); link.className='g-link'; link.href=g.link||'#'; link.target='_blank'; link.rel='noopener'; link.textContent='Ver en tienda';
+          const btn = document.createElement('button'); btn.className='btn'; btn.textContent='Reservar'; btn.style.width='100%';
+
+          body.appendChild(name);
+          if(g.link) body.appendChild(link);
+
+          if(g.reservedBy){
+            const r = document.createElement('div'); r.className='g-reserved';
+            r.innerHTML = `Reservado por <b>${g.reservedBy}</b>${g.reservedAt?`<br><small>${g.reservedAt}</small>`:''}`;
+            btn.disabled = true; btn.textContent='Reservado';
+            body.appendChild(r);
+          } else {
+            btn.addEventListener('click', async ()=>{
+              const byName = prompt('Tu nombre para reservar este regalo:');
+              if(!byName) return;
+              const byEmail = prompt('Tu correo (opcional):') || '';
+              btn.disabled = true; btn.textContent='Reservando…';
+              try{
+                const r = await fetch(WEDDING.giftsApiBase, {
+                  method:'POST', mode:'cors',
+                  headers:{'Content-Type':'application/json'},
+                  body: JSON.stringify({ action:'reserveGift', id: String(g.id), byName, byEmail })
+                });
+                const j = await r.json();
+                if(!j.ok) throw new Error(j.error||'');
+                // refrescar tarjeta
+                body.innerHTML = `<strong>${g.name||''}</strong>`;
+                if(g.link){ const a=document.createElement('a'); a.href=g.link; a.target='_blank'; a.rel='noopener'; a.textContent='Ver en tienda'; a.className='g-link'; body.appendChild(a); }
+                const rbox = document.createElement('div'); rbox.className='g-reserved';
+                rbox.innerHTML = `Reservado por <b>${byName}</b><br><small>${j.reservedAt||''}</small>`;
+                body.appendChild(rbox);
+              }catch(err){
+                const e = document.createElement('div'); e.className='g-error'; e.textContent = 'No se pudo reservar. Puede que alguien se te haya adelantado.';
+                body.appendChild(e);
+                btn.disabled=false; btn.textContent='Reservar';
+              }
+            });
+            body.appendChild(btn);
+          }
+
+          card.appendChild(img); card.appendChild(body); grid.appendChild(card);
         });
-        if(!res.ok) throw new Error('No se pudo enviar');
-        formMsg.innerHTML = '<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
-        form.reset();
+        modalBody.innerHTML=''; modalBody.appendChild(grid);
       }catch(err){
-        formMsg.innerHTML = '<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>';
+        modalBody.innerHTML = '<p class="err">No se pudo cargar la lista por ahora.</p>';
       }
+    });
+
+    // Datos bancarios
+    document.getElementById('openBanks').addEventListener('click', ()=>{
+      openModal('Datos para transferencia', `
+        <div class="subtitle" style="line-height:1.8">
+          <p><strong>Banco Guayaquil</strong><br/>Cuenta de Ahorros <b>#3782519</b></p>
+          <p><strong>Produbanco</strong><br/>Cuenta de Ahorros <b>#20000521092</b></p>
+          <p><strong>Banco de Pichincha</strong><br/>Cuenta Corriente <b>#2100271621</b></p>
+          <hr/>
+          <p><strong>Nombre:</strong> Javier Adrián Tobar Hanze<br/>
+             <strong>Cédula:</strong> 0940960370<br/>
+             <strong>Correo:</strong> adriantobar97@gmail.com<br/>
+             <strong>Celular:</strong> 0999170015</p>
+        </div>
+      `);
     });
   </script>
 </body>
