@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Boda | Nicole Stefanie & Javier Adrián – 15 Mayo 2026</title>
-<meta name="description" content="Invitación de boda de Nicole Stefanie Benalcazar García y Javier Adrián Tobar Hanze – 15/05/2026"/>
+<meta name="description" content="Invitación de boda de Nicole Stefanie Benalcazar García y Javier Adrián Tobar Hanze – 15/05/2026">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 :root{
-  --accent:#8B1E2D; --accent-2:#E6B8B8; --leaf:#386641;
-  --ink:#1F2937; --paper:#FAF7F2; --shadow:0 10px 24px rgba(0,0,0,.12);
-  --radius:18px;
+  --accent:#8B1E2D; --accent-2:#E6B8B8; --ink:#1F2937; --paper:#FAF7F2;
+  --shadow:0 10px 24px rgba(0,0,0,.12); --radius:18px;
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";scroll-behavior:smooth}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+a{color:var(--accent);text-decoration:none}
 .container{max-width:960px;margin:auto;padding:20px}
-a{color:var(--accent)}
 header.hero{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
 .hero-grid{display:grid;grid-template-columns:1.2fr 1fr}
 .hero-img{min-height:440px;background:linear-gradient(135deg,#f8e9ec,#f4efe9)}
@@ -28,67 +27,48 @@ header.hero{position:relative;overflow:hidden;border-radius:var(--radius);box-sh
 .countdown{display:flex;gap:10px;margin-top:18px}
 .pill{flex:1;text-align:center;background:var(--paper);border:1px solid #ece7df;border-radius:14px;padding:12px 8px}
 .pill b{display:block;font-size:22px}
-
 .section{margin:34px 0}
 .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
 .two-col{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .title{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin:0 0 8px}
 .subtitle{margin:0;color:#6b7280}
-
 .btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:600;cursor:pointer;text-decoration:none}
 .btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent)}
-.btn-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px}
-
+.center{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
 .timeline{position:relative;margin-left:14px}
 .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
 .t-item{position:relative;padding-left:28px;margin:16px 0}
 .t-dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
-
-.gallery{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
-.gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px}
-
-form label{display:block;font-weight:600;margin:12px 0 6px}
 input,select,textarea{width:100%;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff}
 textarea{min-height:110px}
 .ok{color:#065f46;padding:12px 14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px}
 .err{color:#9b1c1c;padding:12px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:12px}
-
 footer{margin:36px 0 28px;text-align:center;color:#6b7280}
-
-/* Animación scroll */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}
-
-/* RSVP oculto */
 .hidden{display:none}
-
-/* Música */
 .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
 .music-btn.playing{background:var(--accent);color:#fff}
-
 /* Modal genérico */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;padding:18px}
-.modal.open{display:flex}
-.modal-box{background:#fff;border-radius:16px;box-shadow:var(--shadow);max-width:720px;width:100%;padding:18px}
-.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.modal-title{font-family:"Playfair Display",serif;font-size:22px;margin:0}
-.close-x{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:6px 10px;cursor:pointer}
-.copy-row{display:flex;gap:8px;align-items:center;margin:8px 0}
-.copy-row textarea{height:160px}
-.center{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-img{min-height:320px}}
+.modal-back{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:20px;z-index:40}
+.modal{width:min(720px,100%);background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 22px;position:relative}
+.modal h3{font-family:"Playfair Display",serif;margin:4px 0 12px}
+.modal .close{position:absolute;right:12px;top:10px;border:0;background:#f5f5f5;width:36px;height:36px;border-radius:10px;font-size:20px;cursor:pointer}
+.bank-card{border:1px solid #eee;border-radius:12px;padding:12px 14px;margin:10px 0;background:#fff}
+.bank-card b{display:block;margin-bottom:4px}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-img{min-height:320px}}
 </style>
 </head>
 <body>
 <div class="container">
+
   <!-- HERO -->
   <header class="hero reveal">
     <div class="hero-grid">
       <div class="hero-img" aria-label="Fondo artístico"></div>
       <div class="hero-content">
         <p class="subtitle" id="greeting">Queridos invitados</p>
-        <h1 class="names">Nicole Stefanie <span class="amp">&</span> Javier Adrián</h1>
+        <h1 class="names"><span>Nicole Stefanie</span> <span class="amp">&</span> <span>Javier Adrián</span></h1>
         <p class="subtitle">¡Nos casamos! Acompáñanos a celebrar nuestro amor.</p>
         <p class="date">15 · MAYO · 2026</p>
 
@@ -99,7 +79,7 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
           <div class="pill"><b id="sLeft">0</b><small>SEG</small></div>
         </div>
 
-        <div class="btn-row">
+        <div class="center" style="margin-top:16px">
           <a class="btn" id="addCalendar" href="#">Agregar al calendario</a>
           <a class="btn ghost" href="#confirmar">Confirmar asistencia</a>
         </div>
@@ -113,16 +93,21 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
       <article class="card reveal delay-1">
         <h2 class="title">Ceremonia</h2>
         <p class="subtitle">16:00 · Iglesia Casa de Fé</p>
-        <p>Nos llena el corazón invitarte al momento más especial de nuestra historia, cuando prometamos cuidarnos y amarnos siempre. Tu presencia hará este “sí, acepto” aún más significativo.</p>
-        <div class="center"><a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a></div>
+        <p>Será un momento íntimo y especial en el que uniremos nuestras vidas ante Dios y nuestras familias. 
+        Nos hará muy felices sentir su abrazo y sus oraciones cuando digamos <b>“sí, acepto”</b>.</p>
+        <a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
       </article>
+
       <article class="card reveal delay-2">
         <h2 class="title">Recepción</h2>
         <p class="subtitle">20:00 · Lugar por confirmar</p>
         <p>Después de la ceremonia, celebremos bailando y brindando por el amor.</p>
-        <h4 style="margin:10px 0 6px">No niños</h4>
-        <p class="subtitle">Amamos a los niños, pero hemos reservado sitios solo para adultos. Niños, dulces sueños.</p>
-        <div class="center"><a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a></div>
+        <div class="center" style="margin:10px 0 12px">
+          <span class="subtitle"><b>No niños</b><br>Amamos a los niños, pero hemos reservado sitios solo para adultos. <i>Niños, dulces sueños.</i></span>
+        </div>
+        <div class="center">
+          <a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
+        </div>
       </article>
     </div>
   </section>
@@ -131,11 +116,12 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
   <section class="section two-col">
     <article class="card reveal delay-1">
       <h2 class="title">Código de vestimenta</h2>
-      <p><strong>Formal</strong></p>
-      <p><strong>Mujeres:</strong> de vestido largo · evitar vestidos rojo, beige, plateado, crema y gris.</p>
-      <p><strong>Hombres:</strong> de traje · evitar azul claro.</p>
-      <p class="subtitle">Reservamos el blanco para la novia.</p>
+      <p><b>Formal</b></p>
+      <p><b>Mujeres:</b> de vestido largo · <u>evitar vestidos rojo, beige, plateado, crema y gris</u>.<br>
+         <b>Hombres:</b> de traje · <u>evitar azul claro</u>.<br>
+         Reservamos el blanco para la novia.</p>
     </article>
+
     <article class="card reveal delay-2">
       <h2 class="title">Itinerario</h2>
       <div class="timeline">
@@ -152,17 +138,22 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
   <section class="section two-col">
     <article class="card reveal delay-1">
       <h2 class="title">Mesa de regalos</h2>
-      <p>Tu presencia es nuestro mejor regalo. Para quienes deseen acompañarnos también con un detalle, hemos preparado una lista básica de artículos del hogar. Si lo prefieren, pueden hacerlo con sobre cerrado. ¡Gracias por su cariño!</p>
-      <div class="btn-row">
-        <button class="btn" id="openGifts">Ver lista de regalos</button>
-        <button class="btn ghost" id="openTransfer">Ver datos para transferencia</button>
+      <p>Tu presencia es nuestro mejor regalo. Para quienes deseen acompañarnos también con un detalle,
+      hemos preparado una lista de artículos de hogar. Si lo prefieren, pueden hacerlo con sobre cerrado.
+      ¡Gracias por su cariño!</p>
+      <div class="center">
+        <a class="btn" href="#" id="openGifts">Ver lista de regalos</a>
+        <a class="btn ghost" href="#" id="openTransfers">Ver datos para transferencia</a>
       </div>
     </article>
+
     <article class="card reveal delay-2">
       <h2 class="title">Comparte tus fotografías</h2>
-      <p>Abre el enlace para subir tus fotos del evento.</p>
-      <div class="center"><a class="btn" id="photosLink" href="https://example.com/fotos" target="_blank" rel="noopener">Abrir carpeta de fotos</a></div>
-      <p class="subtitle" style="text-align:center">(Luego reemplaza el enlace por tu carpeta real)</p>
+      <p>¡Queremos ver el día a través de tus ojos! Sube aquí tus mejores momentos: la risa, el brindis,
+      el baile y cada detalle que atesoraremos por siempre.</p>
+      <div class="center">
+        <a class="btn" id="photosLink" href="https://example.com/fotos" target="_blank" rel="noopener">Abrir carpeta de fotos</a>
+      </div>
     </article>
   </section>
 
@@ -180,33 +171,33 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
     <article class="card">
       <h2 class="title">Confirmar asistencia</h2>
       <p class="subtitle">Completa el formulario. Recibirás un correo con tu confirmación.</p>
+
       <form id="rsvpForm">
         <div class="two-col">
           <div>
             <label>Nombre completo</label>
-            <input name="name" id="name" required/>
+            <input name="name" id="name" required>
           </div>
           <div>
             <label>Email</label>
-            <input type="email" name="email" id="email" required/>
+            <input type="email" name="email" id="email" required>
           </div>
         </div>
+
         <div class="two-col">
           <div>
             <label>Teléfono</label>
-            <input name="phone" id="phone"/>
+            <input name="phone" id="phone">
           </div>
           <div>
             <label>Número de acompañantes</label>
             <select name="guests" id="guests">
               <option value="0">Sólo yo</option>
-              <option value="1">+1</option>
-              <option value="2">+2</option>
-              <option value="3">+3</option>
             </select>
             <small class="subtitle">Límite permitido: <span id="guestLimitLabel">0</span></small>
           </div>
         </div>
+
         <div class="two-col">
           <div>
             <label>¿Asistirás?</label>
@@ -218,11 +209,11 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
           </div>
           <div>
             <label>Preferencias alimentarias</label>
-            <input name="diet" id="diet" placeholder="Vegetariano, alergias, etc."/>
+            <input name="diet" id="diet" placeholder="Vegetariano, alergias, etc.">
           </div>
         </div>
 
-        <div id="guestNamesWrap">
+        <div id="guestNamesWrap" class="hidden">
           <label>Nombres de acompañantes</label>
           <textarea name="guestNames" id="guestNames" placeholder="Ej.: Juan Pérez; María Gómez"></textarea>
         </div>
@@ -230,14 +221,14 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
         <label>Mensaje</label>
         <textarea name="message" id="message" placeholder="Déjanos unas palabras…"></textarea>
 
-        <input type="hidden" name="invitee" id="invitee"/>
-        <input type="hidden" name="code" id="code"/>
+        <input type="hidden" name="invitee" id="invitee">
+        <input type="hidden" name="code" id="code">
 
-        <div class="btn-row">
+        <div class="center" style="margin-top:12px">
           <button class="btn" type="submit">Enviar confirmación</button>
           <button class="btn ghost" type="reset">Limpiar</button>
         </div>
-        <p id="formMsg" style="margin-top:12px"></p>
+        <p id="formMsg" style="margin-top:14px"></p>
       </form>
     </article>
   </section>
@@ -247,90 +238,97 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
   </footer>
 </div>
 
-<!-- Música -->
+<!-- MÚSICA -->
 <audio id="music" preload="auto" src="./music/tema.mp3"></audio>
-<button id="musicBtn" class="music-btn" aria-label="Reproducir música">♪</button>
+<button id="musicBtn" class="music-btn" aria-label="Música">♪</button>
 
-<!-- MODAL: Lista de regalos -->
-<div class="modal" id="giftsModal" aria-hidden="true">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h3 class="modal-title">Lista de regalos</h3>
-      <button class="close-x" data-close="giftsModal">✕</button>
-    </div>
-    <div id="giftsBody">Cargando…</div>
+<!-- MODAL LISTA DE REGALOS -->
+<div id="modalGifts" class="modal-back" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="close" data-close="modalGifts" aria-label="Cerrar">×</button>
+    <h3>Lista de regalos</h3>
+    <div id="giftsGrid">Cargando…</div>
   </div>
 </div>
 
-<!-- MODAL: Datos de transferencia -->
-<div class="modal" id="transferModal" aria-hidden="true">
-  <div class="modal-box">
-    <div class="modal-head">
-      <h3 class="modal-title">Datos para transferencias</h3>
-      <button class="close-x" data-close="transferModal">✕</button>
+<!-- MODAL TRANSFERENCIAS -->
+<div id="modalTransfers" class="modal-back" role="dialog" aria-modal="true">
+  <div class="modal">
+    <button class="close" data-close="modalTransfers" aria-label="Cerrar">×</button>
+    <h3>Datos para transferencias</h3>
+
+    <div class="bank-card">
+      <b>Banco Guayaquil</b>
+      <div>Cuenta de Ahorros <b>#3782519</b></div>
     </div>
-    <div class="copy-row">
-      <textarea readonly id="transferText">Banco Guayaquil
-Cuenta de Ahorros #3782519
-
-Produbanco
-Cuenta de Ahorros #20000521092
-
-Banco de Pichincha
-Cuenta Corriente #2100271621
-
-Nombre: Javier Adrián Tobar Hanze
-Cédula: 0940960370
-Correo: adriantobar97@gmail.com
-Celular: 0999170015</textarea>
-      <button class="btn" id="copyTransfer">Copiar</button>
+    <div class="bank-card">
+      <b>Produbanco</b>
+      <div>Cuenta de Ahorros <b>#20000521092</b></div>
+    </div>
+    <div class="bank-card">
+      <b>Banco de Pichincha</b>
+      <div>Cuenta Corriente <b>#2100271621</b></div>
+    </div>
+    <div class="bank-card">
+      <b>Titular</b>
+      <div>Javier Adrián Tobar Hanze</div>
+      <div>Cédula: 0940960370</div>
+      <div>Correo: adriantobar97@gmail.com</div>
+      <div>Celular: 0999170015</div>
     </div>
   </div>
 </div>
 
 <script>
 /* ===== CONFIG ===== */
+const CONFIG = {
+  rsvpEndpoint: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec",
+  giftsCSV: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBR2eNpZ6ERC6w6VB8tBPlg3JgPumCIRO3RE7fXJ-laAVd_zS8e1DCbVwmg7UB8vpBoz_87SbtlAAI/pub?gid=1383828952&single=true&output=csv",
+  limitsEndpoint: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec"
+};
 const WEDDING = {
-  couple: { groom:"Javier Adrián Tobar Hanze", bride:"Nicole Stefanie Benalcazar García" },
+  couple: { groom: "Javier Adrián Tobar Hanze", bride: "Nicole Stefanie Benalcazar García" },
   dateISO: "2026-05-15T16:00:00-05:00",
   ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
-  receptionMap: "#",
-  photosFolder: "https://example.com/fotos",
-  apiBase: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec", // <-- TU URL /exec
-  defaultGuestLimit: 0
+  receptionMap: "#"
 };
 
-/* Personalización via ?to=&code= */
-const p = new URLSearchParams(location.search);
-const to = p.get('to'); const code = p.get('code');
-if(to){ document.getElementById('greeting').textContent = `Para: ${to}`;
-        document.getElementById('name').value = to;
-        document.getElementById('invitee').value = to; }
-if(code){ document.getElementById('code').value = code; }
+/* ===== Personalización por querystring ===== */
+const params = new URLSearchParams(location.search);
+const to = params.get('to');
+const code = params.get('code');
+if (to) {
+  document.getElementById('greeting').textContent = `Para: ${to}`;
+  document.getElementById('name').value = to;
+  document.getElementById('invitee').value = to;
+}
+if (code) document.getElementById('code').value = code;
 
-/* Countdown */
-const dEl=document.getElementById('dLeft'), hEl=document.getElementById('hLeft'),
-      mEl=document.getElementById('mLeft'), sEl=document.getElementById('sLeft');
-function tick(){
-  const t=new Date(WEDDING.dateISO).getTime(), now=Date.now();
-  let diff=Math.max(0,t-now);
-  const d=Math.floor(diff/86400000); diff-=d*86400000;
-  const h=Math.floor(diff/3600000); diff-=h*3600000;
-  const m=Math.floor(diff/60000); diff-=m*60000;
-  const s=Math.floor(diff/1000);
+/* ===== Countdown ===== */
+const dEl = document.getElementById('dLeft'),
+      hEl = document.getElementById('hLeft'),
+      mEl = document.getElementById('mLeft'),
+      sEl = document.getElementById('sLeft');
+function updateCountdown(){
+  const target = new Date(WEDDING.dateISO).getTime();
+  const now = Date.now();
+  let diff = Math.max(0, target - now);
+  const d = Math.floor(diff/86400000); diff -= d*86400000;
+  const h = Math.floor(diff/3600000); diff -= h*3600000;
+  const m = Math.floor(diff/60000); diff -= m*60000;
+  const s = Math.floor(diff/1000);
   dEl.textContent=d; hEl.textContent=h; mEl.textContent=m; sEl.textContent=s;
 }
-setInterval(tick,1000); tick();
+setInterval(updateCountdown,1000); updateCountdown();
 
-/* Enlaces */
-document.getElementById('ceremonyMap').href=WEDDING.ceremonyMap;
-document.getElementById('receptionMap').href=WEDDING.receptionMap;
-document.getElementById('photosLink').href=WEDDING.photosFolder;
+/* Links */
+ceremonyMap.href = WEDDING.ceremonyMap;
+receptionMap.href = WEDDING.receptionMap;
 
-/* .ics */
+/* Add-to-calendar (.ics) */
 function buildICS(){
-  const start=new Date(WEDDING.dateISO), end=new Date(start.getTime()+2*3600e3);
-  const dt=d=>d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  const start=new Date(WEDDING.dateISO), end=new Date(start.getTime()+2*60*60*1000);
+  const dt=d=>d.toISOString().replace(/[-:]/g,"").split(".")[0]+"Z";
   const ics=`BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Boda//ES
@@ -344,101 +342,130 @@ LOCATION:Iglesia Casa de Fé
 DESCRIPTION:¡Acompáñanos a celebrar!
 END:VEVENT
 END:VCALENDAR`;
-  return 'data:text/calendar;charset=utf8,'+encodeURIComponent(ics);
+  return "data:text/calendar;charset=utf8,"+encodeURIComponent(ics);
 }
-document.getElementById('addCalendar').href=buildICS();
+addCalendar.href = buildICS();
 
-/* Animación scroll */
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.12});
+/* Animaciones */
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-document.querySelector('header.hero')?.classList.add('visible');
+
+/* Música (autoplay al primer gesto) */
+const music=document.getElementById('music'), musicBtn=document.getElementById('musicBtn');
+music.loop=true;
+function startMusic(){ music.play().then(()=>musicBtn.classList.add('playing')).catch(()=>{}); window.removeEventListener('pointerdown',startMusic); window.removeEventListener('scroll',startMusic); }
+window.addEventListener('pointerdown',startMusic,{once:true});
+window.addEventListener('scroll',startMusic,{once:true});
+musicBtn.addEventListener('click',()=>{ if(music.paused){music.play();musicBtn.classList.add('playing')} else {music.pause();musicBtn.classList.remove('playing')} });
 
 /* Mostrar/ocultar RSVP */
-document.getElementById('openRSVP').addEventListener('click',()=>{
+openRSVP.addEventListener('click',()=>{
   document.getElementById('rsvp').classList.remove('hidden');
   document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});
-  try{ music.play(); musicBtn.classList.add('playing'); }catch{}
+  startMusic();
 });
 
-/* Música */
-const music=document.getElementById('music'); music.loop=true;
-const musicBtn=document.getElementById('musicBtn');
-musicBtn.addEventListener('click',()=>{ if(music.paused){music.play();musicBtn.classList.add('playing')} else{music.pause();musicBtn.classList.remove('playing')} });
-
-/* Ocultar nombres acompañantes si "Sólo yo" */
-const guestsSel=document.getElementById('guests'), namesWrap=document.getElementById('guestNamesWrap');
-function toggleNames(){ namesWrap.style.display = (guestsSel.value==='0')?'none':''; }
-guestsSel.addEventListener('change',toggleNames); toggleNames();
-
-/* ====== MODALES ====== */
-function openModal(id){ document.getElementById(id).classList.add('open'); }
-function closeModal(id){ document.getElementById(id).classList.remove('open'); }
-document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>closeModal(b.dataset.close));
-
-/* Transfer: copiar */
-document.getElementById('openTransfer').onclick=()=>openModal('transferModal');
-document.getElementById('copyTransfer').onclick=()=>{
-  const t=document.getElementById('transferText'); t.select(); document.execCommand('copy');
-  document.getElementById('copyTransfer').textContent='¡Copiado!'; setTimeout(()=>{document.getElementById('copyTransfer').textContent='Copiar'},1400);
-};
-
-/* ===== Lista de regalos (desde Apps Script) ===== */
-document.getElementById('openGifts').onclick=async()=>{
-  openModal('giftsModal');
-  const cont=document.getElementById('giftsBody');
-  cont.innerHTML='Cargando…';
+/* ===== Límite de invitados ===== */
+let guestLimit=0;
+const guestLimitLabel=document.getElementById('guestLimitLabel');
+async function fetchLimit(){
+  if(!code) return; // sin código no personalizamos
   try{
-    const r=await fetch(WEDDING.apiBase+'?action=gifts', {mode:'cors'});
-    if(!r.ok) throw new Error('http');
-    const items=await r.json(); // [{item,precio,link,estado,por}]
-    if(!Array.isArray(items) || !items.length) { cont.innerHTML='<div class="subtitle">Aún no hay artículos.</div>'; return; }
-    const frag=document.createElement('div');
-    items.forEach(obj=>{
-      const row=document.createElement('div');
-      row.style.border='1px solid #eee'; row.style.borderRadius='12px'; row.style.padding='12px'; row.style.margin='10px 0';
-      row.innerHTML=`<b>${obj.item||''}</b> ${obj.precio?`• <span class="subtitle">${obj.precio}</span>`:''}
-        ${obj.estado==='RESERVADO' ? `<span class="subtitle">• Reservado</span>`:''}
-        ${obj.link?` • <a href="${obj.link}" target="_blank" rel="noopener">ver</a>`:''}`;
-      const btn=document.createElement('button');
-      btn.textContent=(obj.estado==='RESERVADO')?'Reservado':'Reservar';
-      btn.disabled = obj.estado==='RESERVADO';
-      btn.className='btn ghost';
-      btn.style.marginTop='8px';
-      btn.onclick=async()=>{
-        const nombre=prompt('Tu nombre completo:'); if(!nombre) return;
-        const email=prompt('Tu email (para confirmarte):'); if(!email) return;
-        btn.disabled=true; btn.textContent='Enviando…';
-        try{
-          const rr=await fetch(WEDDING.apiBase,{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'giftReserve',item:obj.item,email,nombre})});
-          const j=await rr.json();
-          if(!j.ok) throw new Error(j.error||'fallo');
-          btn.textContent='Reservado';
-        }catch(e){ alert('No se pudo reservar. Intenta de nuevo.'); btn.disabled=false; btn.textContent='Reservar'; }
-      };
-      row.appendChild(document.createElement('br')); row.appendChild(btn);
-      frag.appendChild(row);
-    });
-    cont.innerHTML=''; cont.appendChild(frag);
-  }catch(e){
-    cont.innerHTML='<p class="err">No se pudo cargar la lista de regalos.</p>';
+    const url = CONFIG.limitsEndpoint + `?action=limit&code=${encodeURIComponent(code)}`;
+    const res = await fetch(url,{mode:'cors'});
+    const json = await res.json();
+    if(json && typeof json.limit==='number'){ guestLimit=json.limit; }
+  }catch{}
+  guestLimitLabel.textContent = guestLimit;
+  // llenar selector guests
+  const gSel=document.getElementById('guests');
+  gSel.innerHTML='';
+  for(let i=0;i<=guestLimit;i++){
+    const o=document.createElement('option');
+    o.value=String(i);
+    o.textContent = i===0?'Sólo yo': (i===1?'1 acompañante':`${i} acompañantes`);
+    gSel.appendChild(o);
   }
-};
+  toggleGuestNames();
+}
+function toggleGuestNames(){
+  const val = Number(document.getElementById('guests').value||0);
+  document.getElementById('guestNamesWrap').classList.toggle('hidden', val===0);
+}
+document.getElementById('guests').addEventListener('change',toggleGuestNames);
+fetchLimit();
+
+/* ===== Lista de regalos (CSV público) ===== */
+function openModal(id){ document.getElementById(id).style.display='flex'; }
+function closeModal(id){ document.getElementById(id).style.display='none'; }
+document.querySelectorAll('.close').forEach(b=>b.addEventListener('click',()=>closeModal(b.dataset.close)));
+document.getElementById('openTransfers').addEventListener('click',()=>openModal('modalTransfers'));
+document.getElementById('openGifts').addEventListener('click',async ()=>{
+  openModal('modalGifts');
+  const box=document.getElementById('giftsGrid');
+  box.textContent='Cargando…';
+  try{
+    const res = await fetch(CONFIG.giftsCSV,{mode:'cors'});
+    if(!res.ok){ throw new Error('CSV'); }
+    const csv = await res.text();
+    // Formato esperado: Nombre,Nota,Link(opcional)
+    const rows = csv.trim().split(/\r?\n/).map(r=>r.split(','));
+    const header = rows.shift();
+    const idxName = header.findIndex(h=>/nombre/i.test(h));
+    const idxNote = header.findIndex(h=>/nota|detalle/i.test(h));
+    const idxLink = header.findIndex(h=>/link|enlace|url/i.test(h));
+    box.innerHTML='';
+    rows.forEach(r=>{
+      const name=r[idxName]||'', note=r[idxNote]||'', link=r[idxLink]||'';
+      const card=document.createElement('div');
+      card.className='bank-card';
+      card.innerHTML = `<b>${name}</b><div>${note||''}</div>`;
+      if(link){
+        const a=document.createElement('a');
+        a.href=link; a.target='_blank'; a.rel='noopener'; a.className='btn ghost'; a.style.marginTop='8px';
+        a.textContent='Ver/Comprar';
+        card.appendChild(a);
+      }
+      box.appendChild(card);
+    });
+    if(!rows.length){ box.innerHTML='<div class="err">No hay artículos por ahora.</div>'; }
+  }catch(e){
+    box.innerHTML='<div class="err">No se pudo cargar la lista de regalos.</div>';
+  }
+});
 
 /* ===== Envío RSVP ===== */
-document.getElementById('guestLimitLabel').textContent = WEDDING.defaultGuestLimit;
-const form=document.getElementById('rsvpForm'); const formMsg=document.getElementById('formMsg');
-form.addEventListener('submit',async(e)=>{
-  e.preventDefault(); formMsg.textContent='Enviando…'; formMsg.className='subtitle';
-  const data=Object.fromEntries(new FormData(form).entries());
-  const nGuests=Number(data.guests||0);
-  const names=(data.guestNames||'').split(/[,;]\s*|\n+/).filter(Boolean);
-  if(nGuests>0 && names.length!==nGuests){ formMsg.innerHTML='<span class="err">Indica exactamente los nombres de tus acompañantes (separados por coma o punto y coma).</span>'; return; }
-  data.type='rsvp'; data.timestamp=new Date().toISOString();
+const form=document.getElementById('rsvpForm');
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const formMsg=document.getElementById('formMsg');
+  formMsg.textContent='Enviando…'; formMsg.className='subtitle';
+
+  const data = Object.fromEntries(new FormData(form).entries());
+  data.timestamp = new Date().toISOString();
+
+  const selectedGuests = Number(data.guests||0);
+  const names=(data.guestNames||'').split(/[,;]\s*/).filter(Boolean);
+  if(selectedGuests>0 && names.length !== selectedGuests){
+    formMsg.innerHTML='<span class="err">Indica exactamente los nombres de tus '+selectedGuests+' acompañantes (separados por coma o punto y coma).</span>';
+    return;
+  }
+  if(selectedGuests > guestLimit){
+    formMsg.innerHTML='<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>';
+    return;
+  }
+
   try{
-    const r=await fetch(WEDDING.apiBase,{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-    const j=await r.json(); if(!j.ok) throw new Error(j.error||'Error');
-    formMsg.innerHTML='<span class="ok">¡Recibido! Te llegará un correo de confirmación.</span>'; form.reset(); toggleNames();
-  }catch(err){ formMsg.innerHTML='<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>'; }
+    const res = await fetch(CONFIG.rsvpEndpoint,{
+      method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)
+    });
+    const js = await res.json().catch(()=>({}));
+    if(!res.ok || js.ok===false){ throw new Error(js.error||'Error'); }
+    formMsg.innerHTML='<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
+    form.reset(); toggleGuestNames();
+  }catch(err){
+    formMsg.innerHTML='<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>';
+  }
 });
 </script>
 </body>
