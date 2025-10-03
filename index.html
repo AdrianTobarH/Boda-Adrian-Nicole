@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Boda | Javier Adrián & Nicole – 15 Mayo 2026</title>
-  <meta name="description" content="Invitación de boda de Javier Adrián Tobar Hanze y Nicole Stefanie Benalcazar García – 15/05/2026" />
+  <title>Boda | Nicole Stefanie & Javier Adrián – 15 Mayo 2026</title>
+  <meta name="description" content="Invitación de boda de Nicole Stefanie Benalcazar García y Javier Adrián Tobar Hanze – 15/05/2026" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#8B1E2D; --accent-2:#E6B8B8; --leaf:#386641;
-      --ink:#1F2937; --paper:#FAF7F2; --shadow:0 10px 24px rgba(0,0,0,.12);
-      --radius:18px;
+      --accent:#8B1E2D; /* vino tinto */
+      --accent-2:#E6B8B8; /* rosado suave */
+      --leaf:#386641; /* verde */
+      --ink:#1F2937;  /* gris-azul texto */
+      --paper:#FAF7F2; /* fondo papel */
+      --shadow: 0 10px 24px rgba(0,0,0,.12);
+      --radius: 18px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";scroll-behavior:smooth}
@@ -38,12 +42,16 @@
 
     .btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:600;cursor:pointer;text-decoration:none}
     .btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent)}
-    .btn[disabled]{opacity:.6;cursor:not-allowed}
+    .btn-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    .note{margin:8px 0 14px;color:#6b7280}
 
     .timeline{position:relative;margin-left:14px}
     .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
     .t-item{position:relative;padding-left:28px;margin:16px 0}
     .t-dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
+
+    .gallery{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px}
 
     form label{display:block;font-weight:600;margin:12px 0 6px}
     input,select,textarea{width:100%;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff}
@@ -53,27 +61,31 @@
 
     footer{margin:36px 0 28px;text-align:center;color:#6b7280}
 
-    /* Animaciones */
+    /* Animaciones al hacer scroll */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
     .delay-1{transition-delay:.1s}
     .delay-2{transition-delay:.2s}
+    .delay-3{transition-delay:.3s}
 
+    /* RSVP oculto inicialmente */
     .hidden{display:none}
 
-    /* Música */
+    /* Botón de música flotante */
     .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
     .music-btn.playing{background:var(--accent);color:#fff}
 
-    /* Cards de regalos */
-    .gift-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
-    .gift{border:1px solid #eee;border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
-    .gift img{width:100%;height:140px;object-fit:cover}
-    .gift .g-body{padding:10px;display:flex;flex-direction:column;gap:8px}
-    .g-meta{font-size:12px;color:#6b7280}
-    .g-link{font-size:12px}
-    .g-reserved{color:#065f46;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;padding:6px 8px}
-    .g-error{color:#9b1c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:6px 8px}
+    /* Modal de transferencias */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px}
+    .modal.open{display:flex}
+    .modal .box{background:#fff;max-width:560px;width:100%;border-radius:16px;box-shadow:var(--shadow);padding:20px}
+    .box h3{margin:0 0 12px;font-family:"Playfair Display",serif}
+    .box pre{white-space:pre-wrap;background:#fafafa;border:1px solid #eee;border-radius:12px;padding:12px}
+    .box .close{float:right;border:none;background:transparent;font-size:22px;cursor:pointer}
+    @media (max-width:860px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-img{min-height:320px}
+    }
   </style>
 </head>
 <body>
@@ -84,10 +96,11 @@
         <div class="hero-img" aria-label="Fondo artístico"></div>
         <div class="hero-content">
           <p class="subtitle" id="greeting">Queridos invitados</p>
-          <h1 class="names">Javier Adrián <span class="amp">&</span> Nicole Stephanie</h1>
+          <h1 class="names">Nicole Stefanie <span class="amp">&</span> Javier Adrián</h1>
           <p class="subtitle">¡Nos casamos! Acompáñanos a celebrar nuestro amor.</p>
           <p class="date">15 · MAYO · 2026</p>
 
+          <!-- Countdown -->
           <div class="countdown">
             <div class="pill"><b id="dLeft">0</b><small>DÍAS</small></div>
             <div class="pill"><b id="hLeft">0</b><small>HORAS</small></div>
@@ -110,15 +123,22 @@
           <h2 class="title">Ceremonia</h2>
           <p class="subtitle">16:00 · Iglesia Casa de Fé</p>
           <p>Comparte con nosotros la ceremonia religiosa donde diremos “sí, acepto”.</p>
-          <a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
+          <div class="btn-row">
+            <a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
+          </div>
         </article>
+
         <article class="card reveal delay-2">
           <h2 class="title">Recepción</h2>
           <p class="subtitle">20:00 · Lugar por confirmar</p>
           <p>Después de la ceremonia, celebremos bailando y brindando por el amor.</p>
+
           <p><strong>No niños</strong></p>
-          <p class="subtitle">Amamos a los niños, pero hemos reservado sitios solo para adultos. Niños, dulces sueños.</p>
-          <a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
+          <p class="note">Amamos a los niños, pero hemos reservado sitios solo para adultos. Niños, dulces sueños.</p>
+
+          <div class="btn-row">
+            <a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
+          </div>
         </article>
       </div>
     </section>
@@ -128,8 +148,8 @@
       <article class="card reveal delay-1">
         <h2 class="title">Código de vestimenta</h2>
         <p><strong>Formal</strong></p>
-        <p><strong>Mujeres:</strong> de vestido largo · evitar vestidos rojo, beige, plateado, crema y gris.</p>
-        <p><strong>Hombres:</strong> de traje · evitar azul claro.</p>
+        <p><strong>Mujeres:</strong> de vestido largo · <em>evitar vestidos rojo, beige, plateado, crema y gris.</em></p>
+        <p><strong>Hombres:</strong> de traje · <em>evitar azul claro.</em></p>
         <p>Reservamos el blanco para la novia.</p>
       </article>
       <article class="card reveal delay-2">
@@ -149,16 +169,19 @@
       <article class="card reveal delay-1">
         <h2 class="title">Mesa de regalos</h2>
         <p>Tu presencia es nuestro mejor regalo. Para quienes deseen acompañarnos también con un detalle, hemos preparado una lista básica de artículos del hogar. Si lo prefieren, pueden hacerlo con sobre cerrado. ¡Gracias por su cariño!</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px">
-          <button class="btn" id="openGifts" type="button">Ver lista de regalos</button>
-          <button class="btn ghost" id="openBanks" type="button">Ver datos para transferencia</button>
+        <div class="btn-row" style="margin-top:10px">
+          <a class="btn" href="#" id="openGifts">Ver lista de regalos</a>
+          <a class="btn ghost" href="#" id="openTransfer">Ver datos para transferencia</a>
         </div>
       </article>
+
       <article class="card reveal delay-2">
         <h2 class="title">Comparte tus fotografías</h2>
         <p>Abre el enlace para subir tus fotos del evento.</p>
-        <a class="btn" id="photosLink" href="https://example.com/fotos" target="_blank" rel="noopener">Abrir carpeta de fotos</a>
-        <p class="subtitle">(Luego reemplaza el enlace por tu carpeta real)</p>
+        <div class="btn-row">
+          <a class="btn" id="photosLink" href="https://example.com/fotos" target="_blank" rel="noopener">Abrir carpeta de fotos</a>
+        </div>
+        <p class="subtitle" style="text-align:center">(Luego reemplaza el enlace por tu carpeta real)</p>
       </article>
     </section>
 
@@ -196,10 +219,14 @@
               <label>Número de acompañantes</label>
               <select name="guests" id="guests">
                 <option value="0">Sólo yo</option>
+                <option value="1">1 acompañante</option>
+                <option value="2">2 acompañantes</option>
+                <option value="3">3 acompañantes</option>
               </select>
               <small class="subtitle">Límite permitido: <span id="guestLimitLabel">0</span></small>
             </div>
           </div>
+
           <div class="two-col">
             <div>
               <label>¿Asistirás?</label>
@@ -215,7 +242,7 @@
             </div>
           </div>
 
-          <div id="guestNamesWrap">
+          <div id="guestNamesGroup">
             <label>Nombres de acompañantes</label>
             <textarea name="guestNames" id="guestNames" placeholder="Ej.: Juan Pérez; María Gómez"></textarea>
           </div>
@@ -236,108 +263,102 @@
     </section>
 
     <footer class="reveal">
-      Con amor, <b>Javier Adrián & Nicole</b> • 15 mayo 2026
+      Con amor, <b>Nicole Stefanie & Javier Adrián</b> • 15 mayo 2026
     </footer>
-  </div>
-
-  <!-- MODAL -->
-  <div id="modalBackdrop" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50"></div>
-  <div id="modal" class="hidden" style="position:fixed;left:0;right:0;top:6vh;margin:auto;max-width:860px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:22px;z-index:51">
-    <h3 class="title" id="modalTitle">Título</h3>
-    <div id="modalBody" class="subtitle">Contenido</div>
-    <div style="text-align:right;margin-top:14px">
-      <button class="btn" id="closeModal" type="button">Cerrar</button>
-    </div>
   </div>
 
   <!-- MÚSICA -->
   <audio id="music" preload="auto" src="./music/tema.mp3"></audio>
   <button id="musicBtn" class="music-btn" aria-label="Reproducir música">♪</button>
 
+  <!-- MODAL REGALOS (catálogo con reserva) -->
+  <div class="modal" id="giftsModal" aria-hidden="true">
+    <div class="box">
+      <button class="close" id="closeGifts" aria-label="Cerrar">×</button>
+      <h3>Lista de regalos</h3>
+      <div id="giftsGrid" class="gallery"></div>
+      <p class="subtitle" id="giftsHint" style="margin-top:10px"></p>
+    </div>
+  </div>
+
+  <!-- MODAL TRANSFERENCIAS -->
+  <div class="modal" id="transferModal" aria-hidden="true">
+    <div class="box">
+      <button class="close" id="closeTransfer" aria-label="Cerrar">×</button>
+      <h3>Datos para transferencias</h3>
+      <pre>
+Banco Guayaquil
+Cuenta de Ahorros #3782519
+
+Produbanco
+Cuenta de Ahorros #20000521092
+
+Banco de Pichincha
+Cuenta Corriente #2100271621
+
+Nombre: Javier Adrián Tobar Hanze
+Cédula: 0940960370
+Correo: adriantobar97@gmail.com
+Celular: 0999170015
+      </pre>
+    </div>
+  </div>
+
   <script>
     // ====== CONFIG ======
     const WEDDING = {
-      couple: { groom: "Javier Adrián Tobar Hanze", bride: "Nicole Stephanie Benalcazar García" },
+      couple: { groom: "Javier Adrián Tobar Hanze", bride: "Nicole Stefanie Benalcazar García" },
       dateISO: "2026-05-15T16:00:00-05:00",
       ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
       receptionMap: "#",
       photosFolder: "https://example.com/fotos",
-      // Apps Script Web App
-      rsvpEndpoint: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec",
-      // API de regalos (GET ?mode=gifts para listar, POST {action:'reserveGift'} para reservar)
-      giftsApiBase: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec",
+      giftsLink: "YOUR_GIFTS_PUBLIC_LINK",             // si quieres abrir otra página
+      rsvpEndpoint: "YOUR_APPS_SCRIPT_URL",            // Web App Apps Script (POST)
+      giftsApiBase: "YOUR_APPS_SCRIPT_URL",            // mismo Apps Script (GET/POST)
       defaultGuestLimit: 0
     };
 
-    // --------- util modal ----------
-    const modal = document.getElementById('modal');
-    const modalBackdrop = document.getElementById('modalBackdrop');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
-    const closeModalBtn = document.getElementById('closeModal');
-    function openModal(title, html){
-      modalTitle.textContent = title;
-      modalBody.innerHTML = html;
-      modal.classList.remove('hidden');
-      modalBackdrop.classList.remove('hidden');
-    }
-    function closeModal(){ modal.classList.add('hidden'); modalBackdrop.classList.add('hidden'); }
-    closeModalBtn.addEventListener('click', closeModal);
-    modalBackdrop.addEventListener('click', closeModal);
-
-    // Personalización por querystring (?to=Nombre&code=XYZ&limit=N)
+    // Personalización por querystring (?to=Nombre&code=XYZ&limit=2)
     const params = new URLSearchParams(location.search);
-    const to = params.get('to'); const code = params.get('code'); const limitParam = Number(params.get('limit'));
-    if (to) { greeting.textContent = `Para: ${to}`; name.value = to; invitee.value = to; }
-    if (code) document.getElementById('code').value = code;
+    const to = params.get('to');
+    const code = params.get('code');
+    const limitQS = Number(params.get('limit') || NaN);
+    const guestLimit = Number.isFinite(limitQS) ? limitQS : WEDDING.defaultGuestLimit;
 
-    // Countdown
+    if (to) {
+      document.getElementById('greeting').textContent = `Para: ${to}`;
+      document.getElementById('name').value = to;
+      document.getElementById('invitee').value = to;
+    }
+    if (code) document.getElementById('code').value = code;
+    document.getElementById('guestLimitLabel').textContent = guestLimit;
+
+    // ===== Countdown =====
+    const dEl = document.getElementById('dLeft');
+    const hEl = document.getElementById('hLeft');
+    const mEl = document.getElementById('mLeft');
+    const sEl = document.getElementById('sLeft');
     function updateCountdown(){
-      const t = new Date(WEDDING.dateISO).getTime(), now=Date.now();
-      let diff = Math.max(0, t-now);
-      const d = Math.floor(diff/86400000); diff-=d*86400000;
-      const h = Math.floor(diff/3600000); diff-=h*3600000;
-      const m = Math.floor(diff/60000); diff-=m*60000;
+      const target = new Date(WEDDING.dateISO).getTime();
+      const now = Date.now();
+      let diff = Math.max(0, target - now);
+      const d = Math.floor(diff/86400000); diff -= d*86400000;
+      const h = Math.floor(diff/3600000); diff -= h*3600000;
+      const m = Math.floor(diff/60000); diff -= m*60000;
       const s = Math.floor(diff/1000);
-      dLeft.textContent=d; hLeft.textContent=h; mLeft.textContent=m; sLeft.textContent=s;
+      dEl.textContent=d; hEl.textContent=h; mEl.textContent=m; sEl.textContent=s;
     }
     setInterval(updateCountdown,1000); updateCountdown();
 
-    // Links
-    ceremonyMap.href = WEDDING.ceremonyMap;
-    receptionMap.href = WEDDING.receptionMap;
-    photosLink.href = WEDDING.photosFolder;
+    // Enlaces
+    document.getElementById('ceremonyMap').href = WEDDING.ceremonyMap;
+    document.getElementById('receptionMap').href = WEDDING.receptionMap;
+    document.getElementById('photosLink').href   = WEDDING.photosFolder;
 
-    // Animaciones
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }});
-    }, { threshold:0.05 });
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    document.querySelector('header.hero')?.classList.add('visible');
-
-    // Límite de acompañantes y mostrar/ocultar nombres
-    const guestLimit = Number.isFinite(limitParam) ? limitParam : (WEDDING.defaultGuestLimit||0);
-    guestLimitLabel.textContent = guestLimit;
-    guests.innerHTML = '';
-    for(let i=0;i<=guestLimit;i++){
-      const opt = document.createElement('option');
-      opt.value = String(i); opt.textContent = i===0 ? 'Sólo yo' : `+${i}`;
-      guests.appendChild(opt);
-    }
-    const guestNamesWrap = document.getElementById('guestNamesWrap');
-    function toggleGuestNames(){ guestNamesWrap.style.display = (Number(guests.value||0)===0)?'none':''; if(guestNamesWrap.style.display==='none'){guestNames.value='';} }
-    toggleGuestNames(); guests.addEventListener('change', toggleGuestNames);
-
-    // Música
-    if(music){ music.loop = true; }
-    musicBtn.addEventListener('click', ()=>{ if(music.paused){ music.play(); musicBtn.classList.add('playing'); } else { music.pause(); musicBtn.classList.remove('playing'); }});
-
-    // Abrir RSVP
-    openRSVP.addEventListener('click', ()=>{ rsvp.classList.remove('hidden'); rsvp.scrollIntoView({behavior:'smooth'}); try{ music.play(); musicBtn.classList.add('playing'); }catch{} });
-
-    // .ics
+    // Add-to-calendar (.ics)
     function buildICS(){
-      const start = new Date(WEDDING.dateISO), end = new Date(start.getTime()+2*60*60*1000);
+      const start = new Date(WEDDING.dateISO);
+      const end = new Date(start.getTime() + 2*60*60*1000);
       const dt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
       const ics = `BEGIN:VCALENDAR
 VERSION:2.0
@@ -354,105 +375,188 @@ END:VEVENT
 END:VCALENDAR`;
       return 'data:text/calendar;charset=utf8,'+encodeURIComponent(ics);
     }
-    addCalendar.href = buildICS();
+    document.getElementById('addCalendar').href = buildICS();
 
-    // Envío RSVP
-    rsvpForm.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      formMsg.textContent='Enviando…'; formMsg.className='subtitle';
-      const data = Object.fromEntries(new FormData(rsvpForm).entries());
-      const selected = Number(data.guests||0);
-      const names = (data.guestNames||'').split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean);
-      if(selected>0 && names.length!==selected){ formMsg.innerHTML='<span class="err">Indica exactamente los nombres de tus '+selected+' acompañantes.</span>'; return; }
-      if(selected>guestLimit){ formMsg.innerHTML='<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>'; return; }
-      data.timestamp = new Date().toISOString();
-      try{
-        const res = await fetch(WEDDING.rsvpEndpoint,{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-        if(!res.ok) throw new Error();
-        formMsg.innerHTML='<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
-        rsvpForm.reset(); toggleGuestNames();
-      }catch{ formMsg.innerHTML='<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>'; }
+    // Animaciones al hacer scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold:.12 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    document.querySelector('header.hero')?.classList.add('visible');
+
+    // Mostrar/ocultar RSVP
+    const openBtn = document.getElementById('openRSVP');
+    openBtn.addEventListener('click', ()=>{
+      const sec = document.getElementById('rsvp');
+      sec.classList.remove('hidden');
+      sec.scrollIntoView({behavior:'smooth'});
+      try{ music.play(); musicBtn.classList.add('playing'); }catch{}
     });
 
-    // ------- Ventana de REGALOS con fotos + reservar -------
-    document.getElementById('openGifts').addEventListener('click', async ()=>{
-      openModal('Lista de regalos', `<div class="subtitle">Cargando…</div>`);
+    // Música
+    const music = document.getElementById('music');
+    if(music){ music.loop = true; }
+    const musicBtn = document.getElementById('musicBtn');
+    musicBtn.addEventListener('click', ()=>{
+      if(music.paused){ music.play(); musicBtn.classList.add('playing'); }
+      else{ music.pause(); musicBtn.classList.remove('playing'); }
+    });
+
+    // Mostrar/ocultar nombres de acompañantes según selección
+    const guestsSel = document.getElementById('guests');
+    const guestNamesGroup = document.getElementById('guestNamesGroup');
+    function toggleGuestNames(){
+      const n = Number(guestsSel.value||0);
+      guestNamesGroup.style.display = n>0 ? '' : 'none';
+    }
+    guestsSel.addEventListener('change', toggleGuestNames);
+    toggleGuestNames();
+
+    // ====== MODAL REGALOS ======
+    const giftsModal = document.getElementById('giftsModal');
+    const giftsGrid  = document.getElementById('giftsGrid');
+    document.getElementById('openGifts').addEventListener('click', async (e)=>{
+      e.preventDefault();
+      giftsModal.classList.add('open');
+      giftsGrid.innerHTML = '<p class="subtitle">Cargando…</p>';
       try{
-        const url = WEDDING.giftsApiBase + '?mode=gifts';
+        const url = `${WEDDING.giftsApiBase}?action=gifts`;
         const res = await fetch(url, {mode:'cors'});
-        const gifts = await res.json(); // [{id,name,image,link,reservedBy,reservedEmail,reservedAt}]
-        if(!Array.isArray(gifts) || gifts.length===0){
-          modalBody.innerHTML = '<p class="subtitle">Aún no hay regalos cargados.</p>'; return;
-        }
-        const grid = document.createElement('div'); grid.className='gift-grid';
-        gifts.forEach(g=>{
-          const card = document.createElement('div'); card.className='gift';
-          const img = document.createElement('img'); img.src = g.image || 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=640&q=60'; img.alt=g.name||'Regalo';
-          const body = document.createElement('div'); body.className='g-body';
-          const name = document.createElement('div'); name.innerHTML = `<strong>${g.name||''}</strong>`;
-          const meta = document.createElement('div'); meta.className='g-meta';
-          const link = document.createElement('a'); link.className='g-link'; link.href=g.link||'#'; link.target='_blank'; link.rel='noopener'; link.textContent='Ver en tienda';
-          const btn = document.createElement('button'); btn.className='btn'; btn.textContent='Reservar'; btn.style.width='100%';
+        const items = await res.json(); // [{id,name,image?,link?,reservedBy?}]
+        giftsGrid.innerHTML = '';
+        const ph = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250"><rect width="100%" height="100%" fill="%23f3f4f6"/><text x="50%" y="50%" text-anchor="middle" fill="%239ca3af" font-family="Arial" font-size="18">Sin foto</text></svg>';
+        items.forEach(it=>{
+          const card = document.createElement('div');
+          card.style.background='#fafafa';
+          card.style.border='1px solid #eee';
+          card.style.borderRadius='12px';
+          card.style.padding='10px';
+          card.style.display='flex';
+          card.style.flexDirection='column';
+          card.style.gap='8px';
 
-          body.appendChild(name);
-          if(g.link) body.appendChild(link);
+          const img = document.createElement('img');
+          img.src = it.image || ph;
+          img.alt = it.name || '';
+          img.style.width='100%'; img.style.height='140px'; img.style.objectFit='cover'; img.style.borderRadius='8px';
+          card.appendChild(img);
 
-          if(g.reservedBy){
-            const r = document.createElement('div'); r.className='g-reserved';
-            r.innerHTML = `Reservado por <b>${g.reservedBy}</b>${g.reservedAt?`<br><small>${g.reservedAt}</small>`:''}`;
-            btn.disabled = true; btn.textContent='Reservado';
-            body.appendChild(r);
-          } else {
-            btn.addEventListener('click', async ()=>{
-              const byName = prompt('Tu nombre para reservar este regalo:');
-              if(!byName) return;
-              const byEmail = prompt('Tu correo (opcional):') || '';
-              btn.disabled = true; btn.textContent='Reservando…';
-              try{
-                const r = await fetch(WEDDING.giftsApiBase, {
-                  method:'POST', mode:'cors',
-                  headers:{'Content-Type':'application/json'},
-                  body: JSON.stringify({ action:'reserveGift', id: String(g.id), byName, byEmail })
-                });
-                const j = await r.json();
-                if(!j.ok) throw new Error(j.error||'');
-                // refrescar tarjeta
-                body.innerHTML = `<strong>${g.name||''}</strong>`;
-                if(g.link){ const a=document.createElement('a'); a.href=g.link; a.target='_blank'; a.rel='noopener'; a.textContent='Ver en tienda'; a.className='g-link'; body.appendChild(a); }
-                const rbox = document.createElement('div'); rbox.className='g-reserved';
-                rbox.innerHTML = `Reservado por <b>${byName}</b><br><small>${j.reservedAt||''}</small>`;
-                body.appendChild(rbox);
-              }catch(err){
-                const e = document.createElement('div'); e.className='g-error'; e.textContent = 'No se pudo reservar. Puede que alguien se te haya adelantado.';
-                body.appendChild(e);
-                btn.disabled=false; btn.textContent='Reservar';
+          const title = document.createElement('b');
+          title.textContent = it.name || '';
+          card.appendChild(title);
+
+          const row = document.createElement('div');
+          row.className='btn-row';
+          const btn = document.createElement('button');
+          btn.className='btn';
+          btn.textContent = it.reservedBy ? `Reservado por ${it.reservedBy}` : 'Reservar';
+          btn.disabled = !!it.reservedBy;
+
+          btn.addEventListener('click', async ()=>{
+            const name = prompt('Tu nombre completo:');
+            if(!name) return;
+            const email = prompt('Tu email:') || '';
+            btn.disabled = true; btn.textContent = 'Guardando…';
+            try{
+              const r = await fetch(WEDDING.giftsApiBase, {
+                method:'POST',
+                mode:'cors',
+                headers:{'Content-Type':'application/json'},
+                body: JSON.stringify({ action:'reserve', id: String(it.id), name, email })
+              });
+              const ok = await r.json();
+              if(ok && ok.ok){
+                btn.textContent = `Reservado por ${name}`;
+              }else{
+                btn.disabled = false; btn.textContent = 'Reservar';
+                alert('No se pudo reservar. Intenta de nuevo.');
               }
-            });
-            body.appendChild(btn);
+            }catch{
+              btn.disabled = false; btn.textContent = 'Reservar';
+              alert('Error de red.');
+            }
+          });
+
+          row.appendChild(btn);
+
+          if(it.link){
+            const a = document.createElement('a');
+            a.className='btn ghost';
+            a.href = it.link; a.target='_blank'; a.rel='noopener';
+            a.textContent = 'Ver en tienda';
+            row.appendChild(a);
           }
 
-          card.appendChild(img); card.appendChild(body); grid.appendChild(card);
+          card.appendChild(row);
+          giftsGrid.appendChild(card);
         });
-        modalBody.innerHTML=''; modalBody.appendChild(grid);
+
+        document.getElementById('giftsHint').textContent =
+          'Consejo: reserva primero y luego, si deseas, compra el artículo en tu tienda favorita.';
       }catch(err){
-        modalBody.innerHTML = '<p class="err">No se pudo cargar la lista por ahora.</p>';
+        giftsGrid.innerHTML = '<p class="err">No se pudo cargar la lista de regalos.</p>';
       }
     });
+    document.getElementById('closeGifts').addEventListener('click', ()=>giftsModal.classList.remove('open'));
+    giftsModal.addEventListener('click', e=>{ if(e.target===giftsModal) giftsModal.classList.remove('open'); });
 
-    // Datos bancarios
-    document.getElementById('openBanks').addEventListener('click', ()=>{
-      openModal('Datos para transferencia', `
-        <div class="subtitle" style="line-height:1.8">
-          <p><strong>Banco Guayaquil</strong><br/>Cuenta de Ahorros <b>#3782519</b></p>
-          <p><strong>Produbanco</strong><br/>Cuenta de Ahorros <b>#20000521092</b></p>
-          <p><strong>Banco de Pichincha</strong><br/>Cuenta Corriente <b>#2100271621</b></p>
-          <hr/>
-          <p><strong>Nombre:</strong> Javier Adrián Tobar Hanze<br/>
-             <strong>Cédula:</strong> 0940960370<br/>
-             <strong>Correo:</strong> adriantobar97@gmail.com<br/>
-             <strong>Celular:</strong> 0999170015</p>
-        </div>
-      `);
+    // Modal transferencias
+    const transferModal = document.getElementById('transferModal');
+    document.getElementById('openTransfer').addEventListener('click', (e)=>{ e.preventDefault(); transferModal.classList.add('open'); });
+    document.getElementById('closeTransfer').addEventListener('click', ()=>transferModal.classList.remove('open'));
+    transferModal.addEventListener('click', e=>{ if(e.target===transferModal) transferModal.classList.remove('open'); });
+
+    // Si quieres que el botón “Ver lista de regalos” abra un link fijo:
+    if (WEDDING.giftsLink && WEDDING.giftsLink !== 'YOUR_GIFTS_PUBLIC_LINK') {
+      document.getElementById('openGifts').setAttribute('href', WEDDING.giftsLink);
+      document.getElementById('openGifts').setAttribute('target', '_blank');
+      document.getElementById('openGifts').removeEventListener?.('click', ()=>{});
+    }
+
+    // ===== RSVP submit =====
+    const form = document.getElementById('rsvpForm');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const formMsg = document.getElementById('formMsg');
+      formMsg.textContent = 'Enviando…'; formMsg.className='subtitle';
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      // Validación de acompañantes
+      const selectedGuests = Number(data.guests||0);
+      const names = (data.guestNames||'').split(/[,;]+/).map(s=>s.trim()).filter(Boolean);
+      if(selectedGuests>0 && names.length !== selectedGuests){
+        formMsg.innerHTML = '<span class="err">Indica exactamente los nombres de tus '+selectedGuests+' acompañantes (separados por coma o punto y coma).</span>';
+        return;
+      }
+      if(selectedGuests > guestLimit){
+        formMsg.innerHTML = '<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>';
+        return;
+      }
+
+      // Enviar
+      data.timestamp = new Date().toISOString();
+      data.invitee = data.invitee || to || '';
+      data.code = data.code || code || '';
+
+      try{
+        const res = await fetch(WEDDING.rsvpEndpoint, {
+          method:'POST',
+          mode:'cors',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            action:'rsvp',
+            payload:data
+          })
+        });
+        const json = await res.json();
+        if(!res.ok || !json.ok) throw new Error('bad');
+        formMsg.innerHTML = '<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
+        form.reset(); toggleGuestNames();
+      }catch(err){
+        formMsg.innerHTML = '<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>';
+      }
     });
   </script>
 </body>
