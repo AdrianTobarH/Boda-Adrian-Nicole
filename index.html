@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,51 +31,52 @@
     .date{margin-top:6px;font-weight:600;color:var(--accent);letter-spacing:.18em}
     .countdown{display:flex;gap:10px;margin-top:18px}
     .pill{flex:1;text-align:center;background:var(--paper);border:1px solid #ece7df;border-radius:14px;padding:12px 8px}
-    .pill b{display:block;font-size:22px}.section{margin:34px 0}
-.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-.two-col{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .pill b{display:block;font-size:22px}
 
-.title{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin:0 0 8px}
-.subtitle{margin:0;color:#6b7280}
+    .section{margin:34px 0}
+    .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .two-col{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 
-.btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:600;cursor:pointer;text-decoration:none}
-.btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+    .title{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin:0 0 8px}
+    .subtitle{margin:0;color:#6b7280}
 
-.timeline{position:relative;margin-left:14px}
-.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
-.t-item{position:relative;padding-left:28px;margin:16px 0}
-.t-dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
+    .btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:600;cursor:pointer;text-decoration:none}
+    .btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent)}
 
-.gallery{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
-.gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px}
+    .timeline{position:relative;margin-left:14px}
+    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
+    .t-item{position:relative;padding-left:28px;margin:16px 0}
+    .t-dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
 
-form label{display:block;font-weight:600;margin:12px 0 6px}
-input,select,textarea{width:100%;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff}
-textarea{min-height:110px}
-.ok{color:#065f46;padding:12px 14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px}
-.err{color:#9b1c1c;padding:12px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:12px}
+    .gallery{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px}
 
-footer{margin:36px 0 28px;text-align:center;color:#6b7280}
+    form label{display:block;font-weight:600;margin:12px 0 6px}
+    input,select,textarea{width:100%;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff}
+    textarea{min-height:110px}
+    .ok{color:#065f46;padding:12px 14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px}
+    .err{color:#9b1c1c;padding:12px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:12px}
 
-/* ===== Animaciones al hacer scroll ===== */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.delay-1{transition-delay:.1s}
-.delay-2{transition-delay:.2s}
-.delay-3{transition-delay:.3s}
+    footer{margin:36px 0 28px;text-align:center;color:#6b7280}
 
-/* RSVP oculto inicialmente */
-.hidden{display:none}
+    /* ===== Animaciones al hacer scroll ===== */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .delay-1{transition-delay:.1s}
+    .delay-2{transition-delay:.2s}
+    .delay-3{transition-delay:.3s}
 
-/* Botón de música flotante */
-.music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
-.music-btn.playing{background:var(--accent);color:#fff}
+    /* RSVP oculto inicialmente */
+    .hidden{display:none}
 
-@media (max-width:860px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-img{min-height:320px}
-}
+    /* Botón de música flotante */
+    .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
+    .music-btn.playing{background:var(--accent);color:#fff}
 
+    @media (max-width:860px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-img{min-height:320px}
+    }
   </style>
 </head>
 <body>
@@ -84,153 +86,160 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
       <div class="hero-grid">
         <div class="hero-img" aria-label="Fondo artístico"></div>
         <div class="hero-content">
-          <p class="subtitle" id="greeting">Querid@ invitad@</p>
-          <h1 class="names">Javier Adrián <span class="amp">&</span> Nicole</h1>
+          <p class="subtitle" id="greeting">Queridos invitados</p>
+          <h1 class="names">Javier Adrián <span class=\"amp\">&</span> Nicole Stephanie</h1>
           <p class="subtitle">¡Nos casamos! Acompáñanos a celebrar nuestro amor.</p>
-          <p class="date">15 · MAYO · 2026</p><!-- Countdown -->
-      <div class="countdown">
-        <div class="pill"><b id="dLeft">0</b><small>DÍAS</small></div>
-        <div class="pill"><b id="hLeft">0</b><small>HORAS</small></div>
-        <div class="pill"><b id="mLeft">0</b><small>MIN</small></div>
-        <div class="pill"><b id="sLeft">0</b><small>SEG</small></div>
-      </div>
+          <p class="date">15 · MAYO · 2026</p>
 
-      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn" id="addCalendar" href="#">Agregar al calendario</a>
-        <a class="btn ghost" href="#confirmar">Confirmar asistencia</a>
+          <!-- Countdown -->
+          <div class="countdown">
+            <div class="pill"><b id="dLeft">0</b><small>DÍAS</small></div>
+            <div class="pill"><b id="hLeft">0</b><small>HORAS</small></div>
+            <div class="pill"><b id="mLeft">0</b><small>MIN</small></div>
+            <div class="pill"><b id="sLeft">0</b><small>SEG</small></div>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" id="addCalendar" href="#">Agregar al calendario</a>
+            <a class="btn ghost" href="#confirmar">Confirmar asistencia</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
+
+    <!-- CEREMONIA / RECEPCIÓN -->
+    <section class="section">
+      <div class="two-col">
+        <article class="card reveal delay-1">
+          <h2 class="title">Ceremonia</h2>
+          <p class="subtitle">16:00 · Iglesia Casa de Fé</p>
+          <p>Comparte con nosotros la ceremonia religiosa donde diremos “sí, acepto”.</p>
+          <a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
+        </article>
+        <article class="card reveal delay-2">
+          <h2 class="title">Recepción</h2>
+          <p class="subtitle">20:00 · Lugar por confirmar</p>
+          <p>Después de la ceremonia, celebremos bailando y brindando por el amor.</p>
+          <a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CÓDIGO DE VESTIMENTA / ITINERARIO -->
+    <section class="section two-col">
+      <article class="card reveal delay-1">
+        <h2 class="title">Código de vestimenta</h2>
+        <p><strong>Formal</strong>: Mujeres de largo · Hombres de traje. Reservamos el blanco para la novia.
+<br><small><em>Mujeres</em>: evitar rojo, beige, plateado, crema y gris. <em>Hombres</em>: evitar azul claro.</small></p>
+      </article>
+      <article class="card reveal delay-2">
+        <h2 class="title">Itinerario</h2>
+        <div class="timeline">
+          <div class="t-item"><span class="t-dot"></span><b>16:00</b> – Ceremonia</div>
+          <div class="t-item"><span class="t-dot"></span><b>19:30</b> – Traslado y fotos</div>
+          <div class="t-item"><span class="t-dot"></span><b>20:00</b> – Recepción</div>
+          <div class="t-item"><span class="t-dot"></span><b>21:00</b> – Cena</div>
+          <div class="t-item"><span class="t-dot"></span><b>23:30</b> – Baile</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- MESA DE REGALOS / FOTOS (enlazables luego) -->
+    <section class="section two-col">
+      <article class="card reveal delay-1">
+        <h2 class="title">Mesa de regalos</h2>
+        <p>Tu presencia es nuestro mejor regalo.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="#" id="gift1" target="_blank" rel="noopener">Lista 1</a>
+          <a class="btn ghost" href="#" id="gift2" target="_blank" rel="noopener">Lista 2</a>
+        </div>
+      </article>
+      <article class="card reveal delay-2">
+        <h2 class="title">Comparte tus fotografías</h2>
+        <p>Abre el enlace para subir tus fotos del evento.</p>
+        <a class="btn" id="photosLink" href="https://example.com/fotos" target="_blank" rel="noopener">Abrir carpeta de fotos</a>
+        <p class="subtitle">(Luego reemplaza el enlace por tu carpeta real)</p>
+      </article>
+    </section>
+
+    <!-- BOTÓN PARA MOSTRAR RSVP -->
+    <section id="confirmar" class="section">
+      <article class="card reveal" style="text-align:center">
+        <h2 class="title">¿Nos acompañas?</h2>
+        <p class="subtitle">Pulsa el botón para confirmar y abrir el formulario.</p>
+        <button class="btn" id="openRSVP">Confirmar asistencia</button>
+      </article>
+    </section>
+
+    <!-- RSVP (OCULTO) -->
+    <section id="rsvp" class="section hidden">
+      <article class="card">
+        <h2 class="title">Confirmar asistencia</h2>
+        <p class="subtitle">Completa el formulario. Recibirás un correo con tu confirmación.</p>
+        <form id="rsvpForm">
+          <div class="two-col">
+            <div>
+              <label>Nombre completo</label>
+              <input name="name" id="name" required />
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" name="email" id="email" required />
+            </div>
+          </div>
+          <div class="two-col">
+            <div>
+              <label>Teléfono</label>
+              <input name="phone" id="phone" />
+            </div>
+            <div>
+              <label>Número de acompañantes</label>
+              <select name=\"guests\" id=\"guests\">
+                <option value=\"0\">Sólo yo<\/option>
+              <\/select>
+              <small class=\"subtitle\">Límite permitido: <span id=\"guestLimitLabel\">0<\/span><\/small>
+            </div>
+          </div>
+          <div class="two-col">
+            <div>
+              <label>¿Asistirás?</label>
+              <select name="attending" id="attending" required>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+                <option value="Quizá">Quizá</option>
+              </select>
+            </div>
+            <div>
+              <label>Preferencias alimentarias</label>
+              <input name="diet" id="diet" placeholder="Vegetariano, alergias, etc." />
+            </div>
+          </div>
+          <label>Nombres de acompañantes<\/label>
+          <textarea name=\"guestNames\" id=\"guestNames\" placeholder=\"Ej.: Juan Pérez; María Gómez\"><\/textarea>
+
+          <label>Mensaje<\/label>
+          <textarea name="message" id="message" placeholder="Déjanos unas palabras…"></textarea>
+
+          <input type="hidden" name="invitee" id="invitee" />
+          <input type="hidden" name="code" id="code" />
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+            <button class="btn" type="submit">Enviar confirmación</button>
+            <button class="btn ghost" type="reset">Limpiar</button>
+          </div>
+          <p id="formMsg" style="margin-top:14px"></p>
+        </form>
+      </article>
+    </section>
+
+    <footer class="reveal">
+      Con amor, <b>Javier Adrián & Nicole</b> • 15 mayo 2026
+    </footer>
   </div>
-</header>
 
-<!-- CEREMONIA / RECEPCIÓN -->
-<section class="section">
-  <div class="two-col">
-    <article class="card reveal delay-1">
-      <h2 class="title">Ceremonia</h2>
-      <p class="subtitle">16:00 · Iglesia Casa de Fé</p>
-      <p>Comparte con nosotros la ceremonia religiosa donde diremos “sí, acepto”.</p>
-      <a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
-    </article>
-    <article class="card reveal delay-2">
-      <h2 class="title">Recepción</h2>
-      <p class="subtitle">20:00 · Lugar por confirmar</p>
-      <p>Después de la ceremonia, celebremos bailando y brindando por el amor.</p>
-      <a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
-    </article>
-  </div>
-</section>
-
-<!-- CÓDIGO DE VESTIMENTA / ITINERARIO -->
-<section class="section two-col">
-  <article class="card reveal delay-1">
-    <h2 class="title">Código de vestimenta</h2>
-    <p><strong>Formal</strong>: Mujeres de largo · Hombres de traje. Reservamos el blanco para la novia.</p>
-  </article>
-  <article class="card reveal delay-2">
-    <h2 class="title">Itinerario</h2>
-    <div class="timeline">
-      <div class="t-item"><span class="t-dot"></span><b>16:00</b> – Ceremonia</div>
-      <div class="t-item"><span class="t-dot"></span><b>19:30</b> – Traslado y fotos</div>
-      <div class="t-item"><span class="t-dot"></span><b>20:00</b> – Recepción</div>
-      <div class="t-item"><span class="t-dot"></span><b>21:00</b> – Cena</div>
-      <div class="t-item"><span class="t-dot"></span><b>23:30</b> – Baile</div>
-    </div>
-  </article>
-</section>
-
-<!-- MESA DE REGALOS / FOTOS (enlazables luego) -->
-<section class="section two-col">
-  <article class="card reveal delay-1">
-    <h2 class="title">Mesa de regalos</h2>
-    <p>Tu presencia es nuestro mejor regalo. Si deseas darnos un obsequio, te dejamos nuestras sugerencias.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn" href="#" id="gift1" target="_blank" rel="noopener">Lista 1</a>
-      <a class="btn ghost" href="#" id="gift2" target="_blank" rel="noopener">Lista 2</a>
-    </div>
-  </article>
-  <article class="card reveal delay-2">
-    <h2 class="title">Comparte tus fotografías</h2>
-    <p>Abre el enlace para subir tus fotos del evento.</p>
-    <a class="btn" id="photosLink" href="https://example.com/fotos" target="_blank" rel="noopener">Abrir carpeta de fotos</a>
-    <p class="subtitle">(Luego reemplaza el enlace por tu carpeta real)</p>
-  </article>
-</section>
-
-<!-- BOTÓN PARA MOSTRAR RSVP -->
-<section id="confirmar" class="section">
-  <article class="card reveal" style="text-align:center">
-    <h2 class="title">¿Nos acompañas?</h2>
-    <p class="subtitle">Pulsa el botón para confirmar y abrir el formulario.</p>
-    <button class="btn" id="openRSVP">Confirmar asistencia</button>
-  </article>
-</section>
-
-<!-- RSVP (OCULTO) -->
-<section id="rsvp" class="section hidden">
-  <article class="card">
-    <h2 class="title">Confirmar asistencia</h2>
-    <p class="subtitle">Completa el formulario. Recibirás un correo con tu confirmación.</p>
-    <form id="rsvpForm">
-      <div class="two-col">
-        <div>
-          <label>Nombre completo</label>
-          <input name="name" id="name" required />
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" id="email" required />
-        </div>
-      </div>
-      <div class="two-col">
-        <div>
-          <label>Teléfono</label>
-          <input name="phone" id="phone" />
-        </div>
-        <div>
-          <label>Número de acompañantes</label>
-          <select name="guests" id="guests">
-            <option value="0">Sólo yo</option>
-            <option value="1">+1</option>
-            <option value="2">+2</option>
-            <option value="3">+3</option>
-          </select>
-        </div>
-      </div>
-      <div class="two-col">
-        <div>
-          <label>¿Asistirás?</label>
-          <select name="attending" id="attending" required>
-            <option value="Sí">Sí</option>
-            <option value="No">No</option>
-            <option value="Quizá">Quizá</option>
-          </select>
-        </div>
-        <div>
-          <label>Preferencias alimentarias</label>
-          <input name="diet" id="diet" placeholder="Vegetariano, alergias, etc." />
-        </div>
-      </div>
-      <label>Mensaje</label>
-      <textarea name="message" id="message" placeholder="Déjanos unas palabras…"></textarea>
-
-      <input type="hidden" name="invitee" id="invitee" />
-      <input type="hidden" name="code" id="code" />
-
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-        <button class="btn" type="submit">Enviar confirmación</button>
-        <button class="btn ghost" type="reset">Limpiar</button>
-      </div>
-      <p id="formMsg" style="margin-top:14px"></p>
-    </form>
-  </article>
-</section>
-
-<footer class="reveal">
-  Con amor, <b>Javier Adrián & Nicole</b> • 15 mayo 2026
-</footer>
-
-  </div>  <!-- MÚSICA --><audio id="music" preload="auto" src="./music/tema.mp3"></audio> <button id="musicBtn" class="music-btn" aria-label="Reproducir música">♪</button>
+  <!-- MÚSICA -->
+  <audio id="music" preload="auto" src="./music/tema.mp3"></audio>
+  <button id="musicBtn" class="music-btn" aria-label="Reproducir música">♪</button>
 
   <script>
     // ====== CONFIG ======
@@ -245,7 +254,8 @@ footer{margin:36px 0 28px;text-align:center;color:#6b7280}
       giftLinks: ["#", "#"],
       photosFolder: "https://example.com/fotos",
       // REEMPLAZA por tu Apps Script desplegado como Web App
-      rsvpEndpoint: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL"
+      rsvpEndpoint: \"YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL\",
+      defaultGuestLimit: 0
     };
 
     // Personalización por querystring (?to=Nombre&code=XYZ)
@@ -332,6 +342,18 @@ END:VCALENDAR`;
       e.preventDefault();
       formMsg.textContent = 'Enviando…'; formMsg.className='subtitle';
       const data = Object.fromEntries(new FormData(form).entries());
+      // Validación de acompañantes
+      const selectedGuests = Number(data.guests||0);
+      const names = (data.guestNames||'').split(/[,;
+]+/).map(s=>s.trim()).filter(Boolean);
+      if(selectedGuests>0 && names.length !== selectedGuests){
+        formMsg.innerHTML = '<span class="err">Indica exactamente los nombres de tus '+selectedGuests+' acompañantes (separados por coma o punto y coma).</span>';
+        return;
+      }
+      if(selectedGuests > (typeof guestLimit!=='undefined'?guestLimit:0)){
+        formMsg.innerHTML = '<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>';
+        return;
+      }
       data.timestamp = new Date().toISOString();
       try{
         const res = await fetch(WEDDING.rsvpEndpoint,{
@@ -347,5 +369,6 @@ END:VCALENDAR`;
         formMsg.innerHTML = '<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>';
       }
     });
-  </script></body>
+  </script>
+</body>
 </html>
