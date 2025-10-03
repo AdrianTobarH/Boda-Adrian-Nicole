@@ -59,17 +59,16 @@
 
     footer{margin:36px 0 28px;text-align:center;color:#6b7280}
 
-    /* ===== Animaciones al hacer scroll ===== */
+    /* Animaciones */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
     .reveal.visible{opacity:1;transform:translateY(0)}
     .delay-1{transition-delay:.1s}
     .delay-2{transition-delay:.2s}
     .delay-3{transition-delay:.3s}
 
-    /* RSVP oculto inicialmente */
     .hidden{display:none}
 
-    /* Botón de música flotante */
+    /* Música */
     .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
     .music-btn.playing{background:var(--accent);color:#fff}
 
@@ -87,7 +86,7 @@
         <div class="hero-img" aria-label="Fondo artístico"></div>
         <div class="hero-content">
           <p class="subtitle" id="greeting">Queridos invitados</p>
-          <h1 class="names">Javier Adrián <span class=\"amp\">&</span> Nicole Stephanie</h1>
+          <h1 class="names">Javier Adrián <span class="amp">&</span> Nicole Stephanie</h1>
           <p class="subtitle">¡Nos casamos! Acompáñanos a celebrar nuestro amor.</p>
           <p class="date">15 · MAYO · 2026</p>
 
@@ -129,8 +128,10 @@
     <section class="section two-col">
       <article class="card reveal delay-1">
         <h2 class="title">Código de vestimenta</h2>
-        <p><strong>Formal</strong>: Mujeres de largo · Hombres de traje. Reservamos el blanco para la novia.
-<br><small><em>Mujeres</em>: evitar rojo, beige, plateado, crema y gris. <em>Hombres</em>: evitar azul claro.</small></p>
+        <p>
+          <strong>Formal</strong>: Mujeres de largo · Hombres de traje. Reservamos el blanco para la novia.
+          <br><small><em>Mujeres</em>: evitar rojo, beige, plateado, crema y gris. <em>Hombres</em>: evitar azul claro.</small>
+        </p>
       </article>
       <article class="card reveal delay-2">
         <h2 class="title">Itinerario</h2>
@@ -144,7 +145,7 @@
       </article>
     </section>
 
-    <!-- MESA DE REGALOS / FOTOS (enlazables luego) -->
+    <!-- MESA DE REGALOS / FOTOS -->
     <section class="section two-col">
       <article class="card reveal delay-1">
         <h2 class="title">Mesa de regalos</h2>
@@ -195,10 +196,10 @@
             </div>
             <div>
               <label>Número de acompañantes</label>
-              <select name=\"guests\" id=\"guests\">
-                <option value=\"0\">Sólo yo<\/option>
-              <\/select>
-              <small class=\"subtitle\">Límite permitido: <span id=\"guestLimitLabel\">0<\/span><\/small>
+              <select name="guests" id="guests">
+                <option value="0">Sólo yo</option>
+              </select>
+              <small class="subtitle">Límite permitido: <span id="guestLimitLabel">0</span></small>
             </div>
           </div>
           <div class="two-col">
@@ -215,10 +216,11 @@
               <input name="diet" id="diet" placeholder="Vegetariano, alergias, etc." />
             </div>
           </div>
-          <label>Nombres de acompañantes<\/label>
-          <textarea name=\"guestNames\" id=\"guestNames\" placeholder=\"Ej.: Juan Pérez; María Gómez\"><\/textarea>
 
-          <label>Mensaje<\/label>
+          <label>Nombres de acompañantes</label>
+          <textarea name="guestNames" id="guestNames" placeholder="Ej.: Juan Pérez; María Gómez"></textarea>
+
+          <label>Mensaje</label>
           <textarea name="message" id="message" placeholder="Déjanos unas palabras…"></textarea>
 
           <input type="hidden" name="invitee" id="invitee" />
@@ -249,18 +251,20 @@
       dateISO: "2026-05-15T16:00:00-05:00",
       ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
       receptionMap: "#",
-      giftLinks: ["#", "#"],
-      giftsLink: "https://example.com/regalos", // enlace público a la lista completa (Drive/Sheets/Docs/tienda)
-      giftsEndpoint: "YOUR_GIFTS_JSON_URL", // endpoint que devuelve la lista en JSON
       photosFolder: "https://example.com/fotos",
-      rsvpEndpoint: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL",
+      // Lista de regalos (tu Sheet publicado como CSV)
+      giftsLink: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBR2eNpZ6ERC6w6VB8tBPlg3JgPumCIRO3RE7fXJ-laAVd_zS8e1DCbVwmg7UB8vpBoz_87SbtlAAI/pub?gid=1383828952&single=true&output=csv",
+      giftsEndpoint: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQBR2eNpZ6ERC6w6VB8tBPlg3JgPumCIRO3RE7fXJ-laAVd_zS8e1DCbVwmg7UB8vpBoz_87SbtlAAI/pub?gid=1383828952&single=true&output=csv",
+      // Apps Script Web App (RSVP)
+      rsvpEndpoint: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec",
       defaultGuestLimit: 0
     };
 
-    // Personalización por querystring (?to=Nombre&code=XYZ)
+    // Personalización por querystring (?to=Nombre&code=XYZ&limit=N)
     const params = new URLSearchParams(location.search);
     const to = params.get('to');
     const code = params.get('code');
+    const limitParam = Number(params.get('limit'));
     if (to) {
       document.getElementById('greeting').textContent = `Para: ${to}`;
       document.getElementById('name').value = to;
@@ -268,7 +272,7 @@
     }
     if (code) document.getElementById('code').value = code;
 
-    // ===== Countdown seguro (sin IDs globales) =====
+    // Countdown
     const dEl = document.getElementById('dLeft');
     const hEl = document.getElementById('hLeft');
     const mEl = document.getElementById('mLeft');
@@ -285,43 +289,48 @@
     }
     setInterval(updateCountdown,1000); updateCountdown();
 
-    // Maps & links
+    // Links
     ceremonyMap.href = WEDDING.ceremonyMap;
     receptionMap.href = WEDDING.receptionMap;
-    gift1.href = WEDDING.giftLinks[0];
-    gift2.href = WEDDING.giftLinks[1];
     photosLink.href = WEDDING.photosFolder;
 
-    // ------- Mesa de Regalos: cargar desde Google Sheet / endpoint JSON -------
+    // Mesa de Regalos: lee CSV publicado o JSON
     (async () => {
       const listEl = document.getElementById('giftList');
       try{
-        if(WEDDING.giftsEndpoint && WEDDING.giftsEndpoint !== 'YOUR_GIFTS_JSON_URL'){
-          const res = await fetch(WEDDING.giftsEndpoint, {mode:'cors'});
-          if(!res.ok) throw new Error('No se pudo leer la lista');
-          const items = await res.json(); // espera un array de strings o [{name, note, link}]
-          listEl.innerHTML = '';
-          (Array.isArray(items)? items: []).forEach(it => {
-            const obj = typeof it === 'string' ? {name: it} : it;
-            const li = document.createElement('li');
-            li.style.margin = '4px 0';
-            li.textContent = obj.name || '';
-            if(obj.note){ li.innerHTML += ` – <small>${obj.note}</small>` }
-            if(obj.link){
-              const a = document.createElement('a');
-              a.href = obj.link; a.target = '_blank'; a.rel = 'noopener'; a.textContent = ' (ver)';
-              li.appendChild(a);
-            }
-            listEl.appendChild(li);
+        const res = await fetch(WEDDING.giftsEndpoint, {mode:'cors'});
+        if(!res.ok) throw new Error('No se pudo leer la lista');
+        const text = await res.text();
+        let items;
+        if (/output=csv/i.test(WEDDING.giftsEndpoint)) {
+          const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
+          const headers = rows.shift().map(h => h.trim().toLowerCase());
+          items = rows.map(r => {
+            const obj = {};
+            headers.forEach((h,i)=> obj[h] = (r[i]||'').trim());
+            return obj;
           });
         } else {
-          // fallback por si no hay endpoint aún
-          listEl.innerHTML = '<li>Lavadora</li><li>Secadora</li><li>Cocina</li>';
+          items = JSON.parse(text);
         }
+        listEl.innerHTML = '';
+        (Array.isArray(items)? items: []).forEach(obj => {
+          if (typeof obj === 'string') obj = { name: obj };
+          const li = document.createElement('li');
+          li.style.margin = '4px 0';
+          li.textContent = obj.name || '';
+          if(obj.note){ li.innerHTML += ` – <small>${obj.note}</small>` }
+          if(obj.link){
+            const a = document.createElement('a');
+            a.href = obj.link; a.target = '_blank'; a.rel = 'noopener'; a.textContent = ' (ver)';
+            li.appendChild(a);
+          }
+          listEl.appendChild(li);
+        });
       }catch(err){
         listEl.innerHTML = '<li>No se pudo cargar la lista por ahora.</li>';
       }
-      // QR para la página/lista pública
+      // QR y botón
       if(WEDDING.giftsLink){
         gift1.href = WEDDING.giftsLink;
         giftQR.src = `https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=${encodeURIComponent(WEDDING.giftsLink)}`;
@@ -329,7 +338,7 @@
       }
     })();
 
-    // Add-to-calendar (.ics generado al vuelo)
+    // Add-to-calendar (.ics)
     function buildICS(){
       const start = new Date(WEDDING.dateISO);
       const end = new Date(start.getTime() + 2*60*60*1000);
@@ -351,28 +360,39 @@ END:VCALENDAR`;
     }
     addCalendar.href = buildICS();
 
-    // ==== Animaciones al hacer scroll (IntersectionObserver) ====
+    // Animaciones al hacer scroll
     const io = new IntersectionObserver(entries => {
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
-      })
-    }, { root:null, rootMargin:'0px', threshold:0.05 }); io.unobserve(e.target); }
-      })
-    }, { threshold:.15 });
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { root:null, rootMargin:'0px', threshold:0.05 });
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-    // Fallback: si algo rompe JS antes de observer, muestra el hero
-    document.querySelector('header.hero')?.classList.add('visible');
+    document.querySelector('header.hero')?.classList.add('visible'); // fallback
 
-    // ==== Mostrar/ocultar RSVP ====
+    // Límite de acompañantes
+    const guestLimit = Number.isFinite(limitParam) ? limitParam : (WEDDING.defaultGuestLimit||0);
+    const limitLabel = document.getElementById('guestLimitLabel');
+    const guestsSel = document.getElementById('guests');
+    if(limitLabel){ limitLabel.textContent = guestLimit; }
+    if(guestsSel){
+      guestsSel.innerHTML = '';
+      for(let i=0;i<=guestLimit;i++){
+        const opt = document.createElement('option');
+        opt.value = String(i);
+        opt.textContent = i===0 ? 'Sólo yo' : `+${i}`;
+        guestsSel.appendChild(opt);
+      }
+    }
+
+    // Mostrar/ocultar RSVP
     const openBtn = document.getElementById('openRSVP');
     openBtn.addEventListener('click', ()=>{
       document.getElementById('rsvp').classList.remove('hidden');
       document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});
-      // Reproducir música al primer gesto del usuario (requisito móvil)
-      try{ music.play(); musicBtn.classList.add('playing'); }catch{ /* silencioso */ }
+      try{ music.play(); musicBtn.classList.add('playing'); }catch{}
     });
 
-    // ==== Música ====
+    // Música
     const music = document.getElementById('music');
     if(music){ music.loop = true; }
     const musicBtn = document.getElementById('musicBtn');
@@ -381,21 +401,21 @@ END:VCALENDAR`;
       else{ music.pause(); musicBtn.classList.remove('playing'); }
     });
 
-    // RSVP submit
+    // Envío RSVP
     const form = document.getElementById('rsvpForm');
+    const formMsg = document.getElementById('formMsg');
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
       formMsg.textContent = 'Enviando…'; formMsg.className='subtitle';
       const data = Object.fromEntries(new FormData(form).entries());
       // Validación de acompañantes
       const selectedGuests = Number(data.guests||0);
-      const names = (data.guestNames||'').split(/[,;
-]+/).map(s=>s.trim()).filter(Boolean);
+      const names = (data.guestNames||'').split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean);
       if(selectedGuests>0 && names.length !== selectedGuests){
         formMsg.innerHTML = '<span class="err">Indica exactamente los nombres de tus '+selectedGuests+' acompañantes (separados por coma o punto y coma).</span>';
         return;
       }
-      if(selectedGuests > (typeof guestLimit!=='undefined'?guestLimit:0)){
+      if(selectedGuests > guestLimit){
         formMsg.innerHTML = '<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>';
         return;
       }
