@@ -7,59 +7,105 @@
   <meta name="description" content="Invitación de boda de Nicole Stefanie Benalcazar García y Javier Adrián Tobar Hanze – 15/05/2026" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --accent:#8B1E2D; --accent-soft:#EBD7DC; --leaf:#386641;
-      --ink:#1F2937; --muted:#6B7280; --paper:#FAF7F2;
-      --radius:18px; --shadow:0 10px 24px rgba(0,0,0,.10);
+      /* Paleta */
+      --vino:#8B1E2D;
+      --rosa:#E6B8B8;
+      --verde:#386641;
+      --tinta:#1F2937;
+      --papel:#FAF7F2;
+
+      --shadow:0 10px 24px rgba(0,0,0,.12);
+      --radius:18px;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";scroll-behavior:smooth}
-    a{color:var(--accent);text-decoration:none}
-    .container{max-width:1080px;margin:auto;padding:20px}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .hero-img{min-height:420px;background:linear-gradient(135deg,var(--accent-soft),#f5ede9)}
-    .hero-box{padding:28px}
-    .muted{color:var(--muted)}
-    .names{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:.02em;font-size:clamp(28px,4.4vw,46px);line-height:1.16;margin:6px 0 10px}
-    .amp{font-family:"Playfair Display",serif;color:var(--accent)}
-    .date{margin:.25rem 0 1rem;font-weight:700;color:var(--accent);letter-spacing:.18em}
-    .counter{display:grid;grid-template-columns:repeat(4,minmax(86px,1fr));gap:10px}
-    .pill{padding:14px;border-radius:14px;background:var(--paper);border:1px solid #ece7df;text-align:center}
+    html,body{margin:0;background:var(--papel);color:var(--tinta);scroll-behavior:smooth}
+    body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+
+    a{color:var(--vino);text-decoration:none}
+    .container{max-width:1000px;margin:auto;padding:20px}
+
+    /* HERO */
+    header.hero{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
+    .hero-grid{display:grid;grid-template-columns:1.15fr 1fr}
+    .hero-left{background:linear-gradient(135deg,#f7e8ec,#f5efe8)}
+    .hero-right{padding:0}
+
+    /* Franja de foto arriba del contenido (recortada) */
+    .hero-toppic{
+      width:100%;
+      height:160px;               /* controla cuánto se recorta */
+      object-fit:cover;
+      object-position:center 35%;
+      display:block;
+      border-radius:0 0 0 0;
+    }
+
+    .hero-content{padding:24px 28px 34px}
+    .greet{margin:0 0 8px;color:#6b7280;text-align:center}
+    .names{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:.02em;font-size:clamp(28px,4vw,44px);text-align:center}
+    .amp{font-family:"Great Vibes",cursive;color:var(--vino);font-size:clamp(36px,6vw,64px);line-height:.9;display:inline-block;margin:0 .25em}
+    .subtitle{text-align:center;margin:6px 0 0;color:#596173}
+    .date{margin-top:14px;font-weight:700;color:var(--vino);letter-spacing:.28em;text-align:center}
+
+    /* Countdown centrado */
+    .countdown{display:flex;justify-content:center;gap:10px;margin:18px auto 0;max-width:600px}
+    .pill{flex:1;min-width:110px;text-align:center;background:var(--papel);border:1px solid #ece7df;border-radius:14px;padding:12px 8px}
     .pill b{display:block;font-size:22px}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
-    .btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:600;box-shadow:var(--shadow);cursor:pointer}
-    .btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent);box-shadow:none}
+
+    /* Acciones centradas */
+    .btn-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .btn{display:inline-block;background:var(--vino);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
+    .btn.ghost{background:#fff;color:var(--vino);border:2px solid var(--vino)}
+
+    /* Sección portada full-viewport */
+    .portada{
+      margin:34px 0;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      height:80vh;                /* “pantalla completa” – ajusta si quieres 100vh */
+      background:url("./photos/portada.jpg") center/cover no-repeat;
+      position:relative;
+    }
+    .portada::after{ /* sutil marco/blanqueo */
+      content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 6px rgba(255,255,255,.55);
+    }
+
+    /* Tarjetas & secciones */
     .section{margin:34px 0}
+    .two-col{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
     .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .two{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .title{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin:0 0 8px}
-    .subtitle{margin:0;color:var(--muted)}
-    .timeline{position:relative;margin-left:14px}
-    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
-    .t-item{position:relative;padding-left:28px;margin:16px 0}
-    .t-item::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
-    form label{display:block;font-weight:600;margin:12px 0 6px}
-    input,select,textarea{width:100%;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff}
-    textarea{min-height:110px}
-    .ok{color:#065f46;padding:12px 14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px}
-    .err{color:#9b1c1c;padding:12px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:12px}
-    .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
-    .music-btn.playing{background:var(--accent);color:#fff}
-    dialog{border:none;border-radius:16px;box-shadow:var(--shadow);padding:0;max-width:720px;width:clamp(320px,90vw,720px)}
-    .modal-head{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid #eee}
-    .modal-body{padding:18px}
-    .chip{height:44px;border-radius:12px;border:1px solid #eee;background:#fff;display:flex;align-items:center;padding:0 12px}
-    .chip + .chip{margin-top:10px}
-    .collage{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .collage img{display:block;width:100%;height:auto}
-    .center{text-align:center}
-    @media (max-width:920px){
-      .hero{grid-template-columns:1fr}
-      .hero-img{min-height:300px}
-      .counter{grid-template-columns:repeat(2,1fr)}
-      .cta-row{justify-content:space-between}
+    .title{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin:0 0 8px;text-align:center}
+    .subtle{margin:0;color:#6b7280;text-align:center}
+
+    .timeline{position:relative;margin:8px 0 0}
+    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--vino),transparent)}
+    .t-item{position:relative;padding-left:28px;margin:12px 0}
+    .t-dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--vino)}
+
+    /* Música */
+    .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--vino);color:var(--vino);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
+    .music-btn.playing{background:var(--vino);color:#fff}
+
+    /* RSVP oculto al inicio */
+    .hidden{display:none}
+
+    /* Animar aparición */
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease, transform .8s ease}
+    .reveal.show{opacity:1;transform:translateY(0)}
+
+    footer{margin:40px 0 28px;text-align:center;color:#6b7280}
+
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-left{min-height:240px}
+      .portada{height:65vh}
+      .pill{min-width:96px}
     }
   </style>
 </head>
@@ -67,235 +113,191 @@
   <div class="container">
 
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-img" aria-label="Fondo artístico"></div>
-      <div class="hero-box">
-        <p class="muted">Queridos invitados</p>
-        <h1 class="names">Nicole Stefanie <span class="amp">&</span> Javier Adrián</h1>
-        <p class="subtitle">¡Nos casamos! Acompáñanos a celebrar nuestro amor.</p>
-        <p class="date">15 · MAYO · 2026</p>
+    <header class="hero reveal">
+      <div class="hero-grid">
+        <div class="hero-left" aria-hidden="true"></div>
 
-        <div class="counter" aria-label="Cuenta regresiva">
-          <div class="pill"><b id="dLeft">0</b><small>DÍAS</small></div>
-          <div class="pill"><b id="hLeft">0</b><small>HORAS</small></div>
-          <div class="pill"><b id="mLeft">0</b><small>MIN</small></div>
-          <div class="pill"><b id="sLeft">0</b><small>SEG</small></div>
-        </div>
+        <div class="hero-right">
+          <!-- Foto superior recortada -->
+          <img class="hero-toppic" src="./photos/Foto%20Principal.png" alt="Foto de los novios" loading="eager"/>
 
-        <div class="cta-row">
-          <a class="btn" id="addCalendar" href="#">Agregar al calendario</a>
-          <a class="btn ghost" href="#confirmar">Confirmar asistencia</a>
+          <div class="hero-content">
+            <p class="greet">Queridos invitados</p>
+            <h1 class="names">
+              Nicole Stefanie <span class="amp">&</span> Javier Adrián
+            </h1>
+            <p class="subtitle">¡Nos casamos! Acompáñanos a celebrar nuestro amor.</p>
+            <p class="date">15 · MAYO · 2026</p>
+
+            <!-- Countdown -->
+            <div class="countdown" aria-label="Cuenta regresiva">
+              <div class="pill"><b id="dLeft">0</b><small>DÍAS</small></div>
+              <div class="pill"><b id="hLeft">0</b><small>HORAS</small></div>
+              <div class="pill"><b id="mLeft">0</b><small>MIN</small></div>
+              <div class="pill"><b id="sLeft">0</b><small>SEG</small></div>
+            </div>
+
+            <!-- Acciones -->
+            <div class="btn-row">
+              <a class="btn" id="addCalendar" href="#">Agregar al calendario</a>
+              <a class="btn ghost" href="#confirmar">Confirmar asistencia</a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- FOTO -->
-    <section class="section collage">
-      <img src="./photos/collage.jpg" alt="Nicole & Javier – sesión de fotos" loading="lazy">
-    </section>
+    <!-- PORTADA A PANTALLA COMPLETA -->
+    <section class="portada reveal" aria-label="Portada fotográfica"></section>
 
     <!-- CEREMONIA / RECEPCIÓN -->
-    <section class="section two">
-      <article class="card">
+    <section class="two-col section">
+      <article class="card reveal">
         <h2 class="title">Ceremonia</h2>
-        <p class="subtitle">16:00 · Iglesia Casa de Fé</p>
-        <p>Será un momento íntimo y especial en el que uniremos nuestras vidas ante Dios y nuestras familias. Nos hará muy felices sentir su abrazo y sus oraciones cuando digamos <b>“sí, acepto”</b>.</p>
-        <div class="center" style="margin-top:14px">
-          <a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
-        </div>
+        <p class="subtle">16:00 · Iglesia Casa de Fé</p>
+        <p style="text-align:center">
+          Será un momento íntimo y especial en el que uniremos nuestras vidas ante Dios y nuestras familias. 
+          Nos hará muy felices sentir su abrazo y sus oraciones cuando digamos <b>“sí, acepto”</b>.
+        </p>
+        <div class="btn-row"><a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a></div>
       </article>
-      <article class="card">
+
+      <article class="card reveal">
         <h2 class="title">Recepción</h2>
-        <p class="subtitle">20:00 · Lugar por confirmar</p>
-        <p>Después de la ceremonia, celebremos bailando y brindando por el amor.</p>
-        <p><b>No niños</b><br>Amamos a los niños, pero hemos reservado sitios sólo para adultos. <em>Niños, dulces sueños.</em></p>
-        <a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a>
+        <p class="subtle">20:00 · Lugar por confirmar</p>
+        <p style="text-align:center">
+          Después de la ceremonia, celebremos bailando y brindando por el amor.
+        </p>
+        <p class="subtle"><b>No niños</b></p>
+        <p style="text-align:center">
+          Amamos a los niños, pero hemos reservado sitios solo para adultos. <em>Niños, dulces sueños.</em>
+        </p>
+        <div class="btn-row"><a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a></div>
       </article>
     </section>
 
     <!-- CÓDIGO DE VESTIMENTA / ITINERARIO -->
-    <section class="section two">
-      <article class="card">
+    <section class="two-col section">
+      <article class="card reveal">
         <h2 class="title">Código de vestimenta</h2>
-        <p class="subtitle" style="margin-bottom:10px">Formal</p>
-        <p><b>Hombres:</b> de traje · <em>evitar azul claro</em>.</p>
-        <p><b>Mujeres:</b> de vestido largo · <em>evitar vestidos rojo, beige, plateado, crema y gris</em>.</p>
-        <p>Reservamos el blanco para la novia.</p>
+        <p style="text-align:center"><b>Formal</b></p>
+        <p style="text-align:center"><b>Hombres:</b> de traje · evitar azul claro.</p>
+        <p style="text-align:center"><b>Mujeres:</b> de vestido largo · evitar vestidos rojo, beige, plateado, crema y gris.</p>
+        <p class="subtle">Reservamos el blanco para la novia.</p>
       </article>
-      <article class="card">
+
+      <article class="card reveal">
         <h2 class="title">Itinerario</h2>
         <div class="timeline">
-          <div class="t-item"><b>16:00</b> – Ceremonia</div>
-          <div class="t-item"><b>19:30</b> – Traslado y fotos</div>
-          <div class="t-item"><b>20:00</b> – Recepción</div>
-          <div class="t-item"><b>21:00</b> – Cena</div>
-          <div class="t-item"><b>23:30</b> – Baile</div>
+          <div class="t-item"><span class="t-dot"></span><b>16:00</b> – Ceremonia</div>
+          <div class="t-item"><span class="t-dot"></span><b>19:30</b> – Traslado y fotos</div>
+          <div class="t-item"><span class="t-dot"></span><b>20:00</b> – Recepción</div>
+          <div class="t-item"><span class="t-dot"></span><b>21:00</b> – Cena</div>
+          <div class="t-item"><span class="t-dot"></span><b>23:30</b> – Baile</div>
         </div>
       </article>
     </section>
 
-    <!-- MESA DE REGALOS / FOTOS -->
-    <section class="section two">
-      <article class="card">
-        <h2 class="title">Mesa de regalos</h2>
-        <p>Tu presencia es nuestro mejor regalo. Para quienes deseen acompañarnos también con un detalle, hemos preparado una lista básica de artículos del hogar. Si lo prefieren, pueden hacerlo con sobre cerrado. ¡Gracias por su cariño!</p>
-        <div class="cta-row">
-          <button class="btn" id="openGifts">Ver lista de regalos</button>
-          <a class="btn ghost" id="openTransfer" href="#">Ver datos para transferencia</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <h2 class="title">Comparte tus fotografías</h2>
-        <p>Guarda tus recuerdos de la noche y compártelos con nosotros. Cada sonrisa suma a la historia de este día.</p>
-        <a class="btn" id="photosLink" href="https://example.com/fotos" target="_blank" rel="noopener">Abrir carpeta de fotos</a>
-      </article>
-    </section>
-
-    <!-- CTA mostrar RSVP -->
+    <!-- CTA RSVP -->
     <section id="confirmar" class="section">
-      <article class="card center">
+      <article class="card reveal" style="text-align:center">
         <h2 class="title">¿Nos acompañas?</h2>
-        <p class="subtitle">Pulsa el botón para confirmar y abrir el formulario.</p>
-        <button class="btn" id="openRSVP">Confirmar asistencia</button>
+        <p class="subtle">Pulsa el botón para confirmar y abrir el formulario.</p>
+        <div class="btn-row"><button class="btn" id="openRSVP">Confirmar asistencia</button></div>
       </article>
     </section>
 
-    <!-- RSVP -->
-    <section id="rsvp" class="section" style="display:none">
+    <!-- RSVP (oculto al inicio) -->
+    <section id="rsvp" class="section hidden">
       <article class="card">
         <h2 class="title">Confirmar asistencia</h2>
-        <p class="subtitle">Completa el formulario. Recibirás un correo con tu confirmación.</p>
-        <form id="rsvpForm">
-          <div class="two">
+        <p class="subtle">Completa el formulario. Recibirás un correo con tu confirmación.</p>
+
+        <form id="rsvpForm" style="max-width:900px;margin:0 auto">
+          <div class="two-col">
             <div>
               <label>Nombre completo</label>
-              <input name="name" id="name" required />
+              <input id="name" name="name" required style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px"/>
             </div>
             <div>
               <label>Email</label>
-              <input type="email" name="email" id="email" required />
+              <input id="email" type="email" name="email" required style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px"/>
             </div>
           </div>
-          <div class="two">
+
+          <div class="two-col" style="margin-top:10px">
             <div>
               <label>Teléfono</label>
-              <input name="phone" id="phone" />
+              <input id="phone" name="phone" style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px"/>
             </div>
             <div>
               <label>Número de acompañantes</label>
-              <select name="guests" id="guests">
+              <select id="guests" name="guests" style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px">
                 <option value="0">Sólo yo</option>
-                <option value="1">1 acompañante</option>
-                <option value="2">2 acompañantes</option>
-                <option value="3">3 acompañantes</option>
-                <option value="4">4 acompañantes</option>
+                <option value="1">+1</option>
+                <option value="2">+2</option>
+                <option value="3">+3</option>
               </select>
-              <small class="subtitle">Límite permitido: <span id="guestLimitLabel">0</span></small>
+              <p class="subtle">Límite permitido: <span id="guestLimitLabel">0</span></p>
             </div>
           </div>
-          <div id="guestNamesWrap" style="display:none">
-            <label>Nombres de acompañantes</label>
-            <textarea name="guestNames" id="guestNames" placeholder="Ej.: Juan Pérez; María Gómez"></textarea>
-          </div>
-          <div class="two">
+
+          <div class="two-col" style="margin-top:10px">
             <div>
               <label>¿Asistirás?</label>
-              <select name="attending" id="attending" required>
-                <option value="Sí">Sí</option>
-                <option value="No">No</option>
-                <option value="Quizá">Quizá</option>
+              <select id="attending" name="attending" required style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px">
+                <option>Sí</option><option>No</option><option>Quizá</option>
               </select>
             </div>
             <div>
               <label>Preferencias alimentarias</label>
-              <input name="diet" id="diet" placeholder="Vegetariano, alergias, etc." />
+              <input id="diet" name="diet" placeholder="Vegetariano, alergias, etc." style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px"/>
             </div>
           </div>
-          <label>Mensaje</label>
-          <textarea name="message" id="message" placeholder="Déjanos unas palabras…"></textarea>
 
-          <input type="hidden" name="invitee" id="invitee" />
-          <input type="hidden" name="code" id="code" />
+          <div id="guestNamesWrap" style="margin-top:10px">
+            <label>Nombres de acompañantes</label>
+            <textarea id="guestNames" name="guestNames" placeholder="Ej.: Juan Pérez; María Gómez" style="width:100%;min-height:110px;padding:12px;border:1px solid #e5e7eb;border-radius:10px"></textarea>
+          </div>
 
-          <div class="cta-row" style="margin-top:12px">
+          <label style="margin-top:10px;display:block">Mensaje</label>
+          <textarea id="message" name="message" placeholder="Déjanos unas palabras…" style="width:100%;min-height:110px;padding:12px;border:1px solid #e5e7eb;border-radius:10px"></textarea>
+
+          <input type="hidden" id="invitee" name="invitee"/>
+          <input type="hidden" id="code" name="code"/>
+
+          <div class="btn-row" style="margin-top:14px">
             <button class="btn" type="submit">Enviar confirmación</button>
             <button class="btn ghost" type="reset">Limpiar</button>
           </div>
-          <p id="formMsg" style="margin-top:14px"></p>
+          <p id="formMsg" class="subtle" style="margin-top:10px"></p>
         </form>
       </article>
     </section>
 
-    <footer class="center" style="margin:38px 0 28px;color:var(--muted)">
-      Con amor, <b>Nicole Stefanie & Javier Adrián</b> • 15 mayo 2026
-    </footer>
+    <footer class="reveal">Con amor, <b>Nicole Stefanie & Javier Adrián</b> • 15 mayo 2026</footer>
   </div>
 
-  <!-- AUDIO -->
-  <audio id="music" preload="auto"></audio>
+  <!-- Música -->
+  <audio id="music" preload="auto" src="./music/die-with-a-smile.m4a"></audio>
   <button id="musicBtn" class="music-btn" aria-label="Reproducir música">♪</button>
 
-  <!-- Modales -->
-  <dialog id="giftDialog">
-    <div class="modal-head">
-      <h3 class="title" style="margin:0">Lista de regalos</h3>
-      <button class="btn ghost" onclick="giftDialog.close()">✕</button>
-    </div>
-    <div class="modal-body">
-      <div id="giftList">
-        <div class="chip"></div><div class="chip"></div><div class="chip"></div><div class="chip"></div>
-      </div>
-    </div>
-  </dialog>
-
-  <dialog id="transferDialog">
-    <div class="modal-head">
-      <h3 class="title" style="margin:0">Datos para transferencias</h3>
-      <button class="btn ghost" onclick="transferDialog.close()">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="card" style="background:#fff7f8;border:1px dashed #e4b6be">
-<pre style="white-space:pre-wrap;word-break:break-word;margin:0;font-family:inherit;line-height:1.5">
-<b>Banco Guayaquil</b>
-Cuenta de Ahorros #3782519
-
-<b>Produbanco</b>
-Cuenta de Ahorros #20000521092
-
-<b>Banco de Pichincha</b>
-Cuenta Corriente #2100271621
-
-<b>Nombre:</b> Javier Adrián Tobar Hanze
-<b>Cédula:</b> 0940960370
-<b>Correo:</b> adriantobar97@gmail.com
-<b>Celular:</b> 0999170015
-</pre>
-      </div>
-    </div>
-  </dialog>
-
   <script>
-    // ===== CONFIG =====
+    /* ===== Config ===== */
     const WEDDING = {
-      couple: { bride: "Nicole Stefanie Benalcazar García", groom: "Javier Adrián Tobar Hanze" },
       dateISO: "2026-05-15T16:00:00-05:00",
       ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
-      receptionMap: "#",
-      giftsEndpoint: "", // conecta aquí tu Apps Script de regalos si lo usas
-      photosFolder: "https://example.com/fotos",
-      rsvpEndpoint: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec",
-      defaultGuestLimit: 0
+      receptionMap: "#"
     };
 
-    // ===== LINKS Y CALENDARIO =====
-    ceremonyMap.href = WEDDING.ceremonyMap;
-    receptionMap.href = WEDDING.receptionMap;
-    photosLink.href = WEDDING.photosFolder;
+    // Map links
+    document.getElementById('ceremonyMap').href = WEDDING.ceremonyMap;
+    document.getElementById('receptionMap').href = WEDDING.receptionMap;
 
+    // Fecha al .ics
     function buildICS(){
       const start = new Date(WEDDING.dateISO);
-      const end = new Date(start.getTime() + 2*60*60*1000);
+      const end = new Date(start.getTime()+2*60*60*1000);
       const dt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
       const ics = `BEGIN:VCALENDAR
 VERSION:2.0
@@ -305,131 +307,99 @@ UID:${Date.now()}@boda
 DTSTAMP:${dt(new Date())}
 DTSTART:${dt(start)}
 DTEND:${dt(end)}
-SUMMARY:Boda de ${WEDDING.couple.bride} y ${WEDDING.couple.groom}
+SUMMARY:Boda de Nicole Stefanie y Javier Adrián
 LOCATION:Iglesia Casa de Fé
 DESCRIPTION:¡Acompáñanos a celebrar!
 END:VEVENT
 END:VCALENDAR`;
       return 'data:text/calendar;charset=utf8,'+encodeURIComponent(ics);
     }
-    addCalendar.href = buildICS();
+    document.getElementById('addCalendar').href = buildICS();
 
-    // ===== COUNTDOWN =====
-    const el = id => document.getElementById(id);
-    function countdown(){
-      const t = new Date(WEDDING.dateISO).getTime();
-      const now = Date.now(); let diff = Math.max(0,t-now);
-      const d = Math.floor(diff/86400000); diff -= d*86400000;
-      const h = Math.floor(diff/3600000); diff -= h*3600000;
-      const m = Math.floor(diff/60000); diff -= m*60000;
-      const s = Math.floor(diff/1000);
-      el('dLeft').textContent=d; el('hLeft').textContent=h; el('mLeft').textContent=m; el('sLeft').textContent=s;
+    // Countdown
+    const ids = ['dLeft','hLeft','mLeft','sLeft'].map(id=>document.getElementById(id));
+    function tick(){
+      const t = new Date(WEDDING.dateISO).getTime() - Date.now();
+      const s0 = Math.max(0,Math.floor(t/1000));
+      const d = Math.floor(s0/86400);
+      const h = Math.floor((s0%86400)/3600);
+      const m = Math.floor((s0%3600)/60);
+      const s = s0%60;
+      ids[0].textContent=d; ids[1].textContent=h; ids[2].textContent=m; ids[3].textContent=s;
     }
-    setInterval(countdown,1000); countdown();
+    tick(); setInterval(tick,1000);
 
-    // ===== MÚSICA: prueba nombre largo, luego corto, luego tema.mp3 =====
+    // Animaciones "reveal"
+    const io = new IntersectionObserver(es=>{
+      es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} })
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Mostrar RSVP
+    const openBtn = document.getElementById('openRSVP');
+    openBtn.addEventListener('click', ()=>{
+      document.getElementById('rsvp').classList.remove('hidden');
+      document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});
+      try{ music.play(); musicBtn.classList.add('playing'); }catch{}
+    });
+
+    // Ocultar "Nombres de acompañantes" cuando es “Sólo yo”
+    const guestsSel = document.getElementById('guests');
+    const guestWrap = document.getElementById('guestNamesWrap');
+    const limitEl = document.getElementById('guestLimitLabel');
+    const guestLimit = 0; // puedes actualizar por persona con querystring o por hoja
+    limitEl.textContent = guestLimit;
+    function toggleGuestNames(){
+      guestWrap.style.display = (guestsSel.value === '0') ? 'none' : 'block';
+    }
+    guestsSel.addEventListener('change', toggleGuestNames); toggleGuestNames();
+
+    // Música: reproducción al primer gesto + botón ♪
     const music = document.getElementById('music');
     const musicBtn = document.getElementById('musicBtn');
-    const AUDIO_CANDIDATES = [
-      "./music/Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video).m4a",
-      "./music/die-with-a-smile.m4a",
-      "./music/tema.mp3"
-    ];
-    let audioIndex = 0, triedAutoplay = false;
-
-    function loadAudio(i=0){
-      audioIndex = i;
-      if(i>=AUDIO_CANDIDATES.length) return;
-      const src = encodeURI(AUDIO_CANDIDATES[i]);
-      music.src = src; music.loop = true; music.load();
-      // si este src falla, probar el siguiente
-      music.addEventListener('error', onAudioError, { once:true });
-    }
-    function onAudioError(){ loadAudio(audioIndex+1); }
-    loadAudio(0);
-
-    function tryPlay(){
-      if(triedAutoplay) return; triedAutoplay = true;
-      music.play().then(()=>{ musicBtn.classList.add('playing'); })
-                  .catch(()=>{}); // el usuario puede tocar ♪
-    }
-    ['click','touchstart','scroll','keydown'].forEach(ev =>
-      window.addEventListener(ev, tryPlay, { once:true, passive:true })
-    );
+    music.loop = true;
+    const unlockAudio = ()=>{
+      music.play().then(()=>musicBtn.classList.add('playing')).catch(()=>{});
+      window.removeEventListener('pointerdown',unlockAudio,{once:true});
+      window.removeEventListener('keydown',unlockAudio,{once:true});
+    };
+    window.addEventListener('pointerdown',unlockAudio,{once:true});
+    window.addEventListener('keydown',unlockAudio,{once:true});
     musicBtn.addEventListener('click', ()=>{
       if(music.paused){ music.play(); musicBtn.classList.add('playing'); }
       else{ music.pause(); musicBtn.classList.remove('playing'); }
     });
 
-    // ===== MODALES: REGALOS Y TRANSFERENCIAS =====
-    const giftDialog = document.getElementById('giftDialog');
-    document.getElementById('openGifts').addEventListener('click', async ()=>{
-      const list = document.getElementById('giftList'); list.innerHTML='';
-      try{
-        let items = [];
-        if(WEDDING.giftsEndpoint){
-          const res = await fetch(WEDDING.giftsEndpoint);
-          items = await res.json();
-        }else{
-          items = [
-            {name:'Lavadora',link:'https://almacenesespana.ec/producto/lavadora-automatica-digital-17-kg-diamond-gray/'},
-            {name:'Secadora',link:'https://almacenesespana.ec/producto/secadora-electrica-samsung-frontal-grafito-dve24dg8000pv-ap/'},
-            {name:'Televisor',link:'https://almacenesespana.ec/producto/televisor-43-uhd-google-tv-43v6c-tcl/'}
-          ];
-        }
-        items.forEach(it=>{
-          const row = document.createElement('div'); row.className='chip'; row.style.justifyContent='space-between';
-          const left = document.createElement('div'); left.textContent = it.name || it;
-          const right = document.createElement('div');
-          if(it.link){ const a=document.createElement('a'); a.href=it.link; a.target='_blank'; a.rel='noopener'; a.textContent='ver'; right.appendChild(a); }
-          row.appendChild(left); row.appendChild(right); list.appendChild(row);
-        });
-      }catch(e){
-        const warn=document.createElement('div'); warn.className='err'; warn.textContent='No se pudo cargar la lista de regalos.'; list.appendChild(warn);
-      }
-      giftDialog.showModal();
-    });
-    const transferDialog = document.getElementById('transferDialog');
-    document.getElementById('openTransfer').addEventListener('click', ()=> transferDialog.showModal());
-
-    // ===== RSVP =====
-    const openBtn = document.getElementById('openRSVP');
-    openBtn.addEventListener('click', ()=>{
-      document.getElementById('rsvp').style.display='block';
-      document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});
-      tryPlay();
-    });
-    const guestsSel = document.getElementById('guests');
-    const gWrap = document.getElementById('guestNamesWrap');
-    const guestLimitLabel = document.getElementById('guestLimitLabel');
-    let guestLimit = WEDDING.defaultGuestLimit;
-    function toggleGuestNames(){ const n = Number(guestsSel.value||0); gWrap.style.display = n>0 ? 'block' : 'none'; }
-    guestsSel.addEventListener('change', toggleGuestNames); toggleGuestNames(); guestLimitLabel.textContent = guestLimit;
-
-    const params = new URLSearchParams(location.search);
-    const to = params.get('to'); const code = params.get('code');
-    if (to) { document.getElementById('name').value = to; document.getElementById('invitee').value = to; }
-    if (code) document.getElementById('code').value = code;
-
+    // RSVP (solo interfaz; tu Apps Script puede conectarse igual que antes)
     const form = document.getElementById('rsvpForm');
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      formMsg.textContent='Enviando…'; formMsg.className='subtitle';
+      const msg = document.getElementById('formMsg');
+      msg.textContent = 'Enviando…';
       const data = Object.fromEntries(new FormData(form).entries());
-      const nGuests = Number(data.guests||0);
-      const names = (data.guestNames||'').split(/[,;]\s*/).map(s=>s.trim()).filter(Boolean);
-      if(nGuests>0 && names.length!==nGuests){
-        formMsg.innerHTML='<span class="err">Indica exactamente los nombres de tus '+nGuests+' acompañantes (separados por coma o punto y coma).</span>'; return;
+      const guests = Number(data.guests||0);
+      const names = (data.guestNames||'').split(/[,;]\s*/).filter(Boolean);
+      if(guests>0 && names.length!==guests){
+        msg.textContent = `Indica exactamente ${guests} nombre(s) de acompañante.`;
+        msg.style.color = '#8B1E2D';
+        return;
       }
-      if(nGuests>guestLimit){ formMsg.innerHTML='<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>'; return; }
-      data.timestamp = new Date().toISOString();
-      try{
-        const res = await fetch(WEDDING.rsvpEndpoint,{ method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data) });
-        if(!res.ok) throw 0;
-        formMsg.innerHTML='<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
-        form.reset(); toggleGuestNames();
-      }catch{ formMsg.innerHTML='<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>'; }
+      if(guests>guestLimit){
+        msg.textContent = `Tu límite de acompañantes es ${guestLimit}.`;
+        msg.style.color = '#8B1E2D';
+        return;
+      }
+      // => aquí invocarías tu endpoint Apps Script si lo deseas
+      msg.textContent = '¡Recibido! Gracias por confirmar.';
+      msg.style.color = '#065f46';
+      form.reset(); toggleGuestNames();
     });
+
+    // Personalización por query (?to=Nombre&code=XYZ)
+    const params = new URLSearchParams(location.search);
+    const to = params.get('to'); const code = params.get('code');
+    if(to){ document.getElementById('name').value = to; document.getElementById('invitee').value = to; }
+    if(code){ document.getElementById('code').value = code; }
   </script>
 </body>
 </html>
