@@ -10,15 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent:#8B1E2D;        /* vino tinto */
-      --accent-soft:#EBD7DC;   /* rosado claro del hero */
-      --leaf:#386641;          /* verde (detalles) */
-      --ink:#1F2937;           /* gris-azul texto */
-      --muted:#6B7280;         /* texto secundario */
-      --paper:#FAF7F2;         /* fondo */
-      --radius:18px;
-      --shadow:0 10px 24px rgba(0,0,0,.10);
-      --ring:0 0 0 3px rgba(139,30,45,.15);
+      --accent:#8B1E2D; --accent-soft:#EBD7DC; --leaf:#386641;
+      --ink:#1F2937; --muted:#6B7280; --paper:#FAF7F2;
+      --radius:18px; --shadow:0 10px 24px rgba(0,0,0,.10);
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";scroll-behavior:smooth}
@@ -42,30 +36,24 @@
     .two{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
     .title{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin:0 0 8px}
     .subtitle{margin:0;color:var(--muted)}
-    /* timeline */
     .timeline{position:relative;margin-left:14px}
     .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
     .t-item{position:relative;padding-left:28px;margin:16px 0}
     .t-item::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
-    /* formulario */
     form label{display:block;font-weight:600;margin:12px 0 6px}
     input,select,textarea{width:100%;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff}
     textarea{min-height:110px}
     .ok{color:#065f46;padding:12px 14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px}
     .err{color:#9b1c1c;padding:12px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:12px}
-    /* música */
     .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
     .music-btn.playing{background:var(--accent);color:#fff}
-    /* modal */
     dialog{border:none;border-radius:16px;box-shadow:var(--shadow);padding:0;max-width:720px;width:clamp(320px,90vw,720px)}
     .modal-head{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid #eee}
     .modal-body{padding:18px}
     .chip{height:44px;border-radius:12px;border:1px solid #eee;background:#fff;display:flex;align-items:center;padding:0 12px}
     .chip + .chip{margin-top:10px}
-    /* foto collage */
     .collage{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
     .collage img{display:block;width:100%;height:auto}
-    /* helpers */
     .center{text-align:center}
     @media (max-width:920px){
       .hero{grid-template-columns:1fr}
@@ -94,8 +82,6 @@
           <div class="pill"><b id="sLeft">0</b><small>SEG</small></div>
         </div>
 
-        <div class="pill" style="margin-top:12px;text-align:center"><b id="sOnly">0</b><small>SEG</small></div>
-
         <div class="cta-row">
           <a class="btn" id="addCalendar" href="#">Agregar al calendario</a>
           <a class="btn ghost" href="#confirmar">Confirmar asistencia</a>
@@ -103,7 +89,7 @@
       </div>
     </section>
 
-    <!-- FOTO (sube tu imagen como photos/collage.jpg) -->
+    <!-- FOTO -->
     <section class="section collage">
       <img src="./photos/collage.jpg" alt="Nicole & Javier – sesión de fotos" loading="lazy">
     </section>
@@ -131,9 +117,7 @@
     <section class="section two">
       <article class="card">
         <h2 class="title">Código de vestimenta</h2>
-
         <p class="subtitle" style="margin-bottom:10px">Formal</p>
-
         <p><b>Hombres:</b> de traje · <em>evitar azul claro</em>.</p>
         <p><b>Mujeres:</b> de vestido largo · <em>evitar vestidos rojo, beige, plateado, crema y gris</em>.</p>
         <p>Reservamos el blanco para la novia.</p>
@@ -177,7 +161,7 @@
       </article>
     </section>
 
-    <!-- RSVP (oculto) -->
+    <!-- RSVP -->
     <section id="rsvp" class="section" style="display:none">
       <article class="card">
         <h2 class="title">Confirmar asistencia</h2>
@@ -210,12 +194,10 @@
               <small class="subtitle">Límite permitido: <span id="guestLimitLabel">0</span></small>
             </div>
           </div>
-
           <div id="guestNamesWrap" style="display:none">
             <label>Nombres de acompañantes</label>
             <textarea name="guestNames" id="guestNames" placeholder="Ej.: Juan Pérez; María Gómez"></textarea>
           </div>
-
           <div class="two">
             <div>
               <label>¿Asistirás?</label>
@@ -230,7 +212,6 @@
               <input name="diet" id="diet" placeholder="Vegetariano, alergias, etc." />
             </div>
           </div>
-
           <label>Mensaje</label>
           <textarea name="message" id="message" placeholder="Déjanos unas palabras…"></textarea>
 
@@ -263,10 +244,7 @@
     </div>
     <div class="modal-body">
       <div id="giftList">
-        <div class="chip"></div>
-        <div class="chip"></div>
-        <div class="chip"></div>
-        <div class="chip"></div>
+        <div class="chip"></div><div class="chip"></div><div class="chip"></div><div class="chip"></div>
       </div>
     </div>
   </dialog>
@@ -278,7 +256,7 @@
     </div>
     <div class="modal-body">
       <div class="card" style="background:#fff7f8;border:1px dashed #e4b6be">
-        <pre style="white-space:pre-wrap;word-break:break-word;margin:0;font-family:inherit;line-height:1.5">
+<pre style="white-space:pre-wrap;word-break:break-word;margin:0;font-family:inherit;line-height:1.5">
 <b>Banco Guayaquil</b>
 Cuenta de Ahorros #3782519
 
@@ -292,58 +270,29 @@ Cuenta Corriente #2100271621
 <b>Cédula:</b> 0940960370
 <b>Correo:</b> adriantobar97@gmail.com
 <b>Celular:</b> 0999170015
-        </pre>
+</pre>
       </div>
     </div>
   </dialog>
 
   <script>
-    // ====== CONFIG ======
+    // ===== CONFIG =====
     const WEDDING = {
       couple: { bride: "Nicole Stefanie Benalcazar García", groom: "Javier Adrián Tobar Hanze" },
       dateISO: "2026-05-15T16:00:00-05:00",
       ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
       receptionMap: "#",
-      // Si conectas Google Sheet/Apps Script, pon aquí el endpoint JSON:
-      giftsEndpoint: "",  // deja vacío para usar fallback
-      // Lista pública (si quieres QR más tarde):
-      giftsLink: "",
+      giftsEndpoint: "", // conecta aquí tu Apps Script de regalos si lo usas
       photosFolder: "https://example.com/fotos",
-      // Apps Script de RSVP (el tuyo):
       rsvpEndpoint: "https://script.google.com/macros/s/AKfycbw4DVo5jW2nYQxxh_0XY7CSPAiyaEuudDJfUvYFz71njXcWFrthxHO190LEwPRsw7IDuA/exec",
       defaultGuestLimit: 0
     };
 
-    // ====== AUDIO: usa el nombre largo exacto y encodeURI ======
-    const audioFile = encodeURI("./music/Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video).m4a");
-    const music = document.getElementById('music');
-    const musicBtn = document.getElementById('musicBtn');
-    music.src = audioFile; music.loop = true;
-
-    let triedAutoplay = false;
-    function tryPlay(){ if(triedAutoplay) return; triedAutoplay = true; music.play().then(()=>{ musicBtn.classList.add('playing'); }).catch(()=>{}); }
-    ['click','touchstart','scroll','keydown'].forEach(ev => window.addEventListener(ev, tryPlay, { once:true, passive:true }));
-    musicBtn.addEventListener('click', ()=>{ if(music.paused){ music.play(); musicBtn.classList.add('playing'); } else { music.pause(); musicBtn.classList.remove('playing'); }});
-
-    // ====== LINKS ======
+    // ===== LINKS Y CALENDARIO =====
     ceremonyMap.href = WEDDING.ceremonyMap;
     receptionMap.href = WEDDING.receptionMap;
     photosLink.href = WEDDING.photosFolder;
 
-    // ====== COUNTDOWN ======
-    const el = id => document.getElementById(id);
-    function countdown(){
-      const t = new Date(WEDDING.dateISO).getTime();
-      const now = Date.now(); let diff = Math.max(0,t-now);
-      const d = Math.floor(diff/86400000); diff -= d*86400000;
-      const h = Math.floor(diff/3600000); diff -= h*3600000;
-      const m = Math.floor(diff/60000); diff -= m*60000;
-      const s = Math.floor(diff/1000);
-      el('dLeft').textContent=d; el('hLeft').textContent=h; el('mLeft').textContent=m; el('sLeft').textContent=s; el('sOnly').textContent=s;
-    }
-    setInterval(countdown, 1000); countdown();
-
-    // ====== ADD TO CALENDAR (.ics) ======
     function buildICS(){
       const start = new Date(WEDDING.dateISO);
       const end = new Date(start.getTime() + 2*60*60*1000);
@@ -365,97 +314,121 @@ END:VCALENDAR`;
     }
     addCalendar.href = buildICS();
 
-    // ====== GIFTS ======
+    // ===== COUNTDOWN =====
+    const el = id => document.getElementById(id);
+    function countdown(){
+      const t = new Date(WEDDING.dateISO).getTime();
+      const now = Date.now(); let diff = Math.max(0,t-now);
+      const d = Math.floor(diff/86400000); diff -= d*86400000;
+      const h = Math.floor(diff/3600000); diff -= h*3600000;
+      const m = Math.floor(diff/60000); diff -= m*60000;
+      const s = Math.floor(diff/1000);
+      el('dLeft').textContent=d; el('hLeft').textContent=h; el('mLeft').textContent=m; el('sLeft').textContent=s;
+    }
+    setInterval(countdown,1000); countdown();
+
+    // ===== MÚSICA: prueba nombre largo, luego corto, luego tema.mp3 =====
+    const music = document.getElementById('music');
+    const musicBtn = document.getElementById('musicBtn');
+    const AUDIO_CANDIDATES = [
+      "./music/Lady Gaga, Bruno Mars - Die With A Smile (Official Music Video).m4a",
+      "./music/die-with-a-smile.m4a",
+      "./music/tema.mp3"
+    ];
+    let audioIndex = 0, triedAutoplay = false;
+
+    function loadAudio(i=0){
+      audioIndex = i;
+      if(i>=AUDIO_CANDIDATES.length) return;
+      const src = encodeURI(AUDIO_CANDIDATES[i]);
+      music.src = src; music.loop = true; music.load();
+      // si este src falla, probar el siguiente
+      music.addEventListener('error', onAudioError, { once:true });
+    }
+    function onAudioError(){ loadAudio(audioIndex+1); }
+    loadAudio(0);
+
+    function tryPlay(){
+      if(triedAutoplay) return; triedAutoplay = true;
+      music.play().then(()=>{ musicBtn.classList.add('playing'); })
+                  .catch(()=>{}); // el usuario puede tocar ♪
+    }
+    ['click','touchstart','scroll','keydown'].forEach(ev =>
+      window.addEventListener(ev, tryPlay, { once:true, passive:true })
+    );
+    musicBtn.addEventListener('click', ()=>{
+      if(music.paused){ music.play(); musicBtn.classList.add('playing'); }
+      else{ music.pause(); musicBtn.classList.remove('playing'); }
+    });
+
+    // ===== MODALES: REGALOS Y TRANSFERENCIAS =====
     const giftDialog = document.getElementById('giftDialog');
     document.getElementById('openGifts').addEventListener('click', async ()=>{
-      const list = document.getElementById('giftList');
-      list.innerHTML = '';
+      const list = document.getElementById('giftList'); list.innerHTML='';
       try{
         let items = [];
-        if (WEDDING.giftsEndpoint){
+        if(WEDDING.giftsEndpoint){
           const res = await fetch(WEDDING.giftsEndpoint);
           items = await res.json();
         }else{
           items = [
-            {id:1,name:'Lavadora',link:'https://almacenesespana.ec/producto/lavadora-automatica-digital-17-kg-diamond-gray/'},
-            {id:2,name:'Secadora',link:'https://almacenesespana.ec/producto/secadora-electrica-samsung-frontal-grafito-dve24dg8000pv-ap/'},
-            {id:3,name:'Televisor',link:'https://almacenesespana.ec/producto/televisor-43-uhd-google-tv-43v6c-tcl/'}
+            {name:'Lavadora',link:'https://almacenesespana.ec/producto/lavadora-automatica-digital-17-kg-diamond-gray/'},
+            {name:'Secadora',link:'https://almacenesespana.ec/producto/secadora-electrica-samsung-frontal-grafito-dve24dg8000pv-ap/'},
+            {name:'Televisor',link:'https://almacenesespana.ec/producto/televisor-43-uhd-google-tv-43v6c-tcl/'}
           ];
         }
         items.forEach(it=>{
           const row = document.createElement('div'); row.className='chip'; row.style.justifyContent='space-between';
           const left = document.createElement('div'); left.textContent = it.name || it;
           const right = document.createElement('div');
-          if(it.link){
-            const a = document.createElement('a'); a.href=it.link; a.target='_blank'; a.rel='noopener'; a.textContent='ver';
-            right.appendChild(a);
-          }
+          if(it.link){ const a=document.createElement('a'); a.href=it.link; a.target='_blank'; a.rel='noopener'; a.textContent='ver'; right.appendChild(a); }
           row.appendChild(left); row.appendChild(right); list.appendChild(row);
         });
       }catch(e){
-        const warn = document.createElement('div'); warn.className='err'; warn.textContent='No se pudo cargar la lista de regalos.';
-        list.appendChild(warn);
+        const warn=document.createElement('div'); warn.className='err'; warn.textContent='No se pudo cargar la lista de regalos.'; list.appendChild(warn);
       }
       giftDialog.showModal();
     });
-
-    // ====== TRANSFER MODAL ======
     const transferDialog = document.getElementById('transferDialog');
     document.getElementById('openTransfer').addEventListener('click', ()=> transferDialog.showModal());
 
-    // ====== RSVP ======
+    // ===== RSVP =====
     const openBtn = document.getElementById('openRSVP');
     openBtn.addEventListener('click', ()=>{
       document.getElementById('rsvp').style.display='block';
       document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});
       tryPlay();
     });
-
-    // mostrar/ocultar nombres de acompañantes
     const guestsSel = document.getElementById('guests');
     const gWrap = document.getElementById('guestNamesWrap');
     const guestLimitLabel = document.getElementById('guestLimitLabel');
     let guestLimit = WEDDING.defaultGuestLimit;
-    function toggleGuestNames(){
-      const n = Number(guestsSel.value||0);
-      gWrap.style.display = n>0 ? 'block' : 'none';
-    }
-    guestsSel.addEventListener('change', toggleGuestNames); toggleGuestNames();
-    guestLimitLabel.textContent = guestLimit;
+    function toggleGuestNames(){ const n = Number(guestsSel.value||0); gWrap.style.display = n>0 ? 'block' : 'none'; }
+    guestsSel.addEventListener('change', toggleGuestNames); toggleGuestNames(); guestLimitLabel.textContent = guestLimit;
 
-    // completar por querystring
     const params = new URLSearchParams(location.search);
     const to = params.get('to'); const code = params.get('code');
     if (to) { document.getElementById('name').value = to; document.getElementById('invitee').value = to; }
     if (code) document.getElementById('code').value = code;
 
-    // enviar RSVP
     const form = document.getElementById('rsvpForm');
     form.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      formMsg.textContent = 'Enviando…'; formMsg.className='subtitle';
+      formMsg.textContent='Enviando…'; formMsg.className='subtitle';
       const data = Object.fromEntries(new FormData(form).entries());
-      const selectedGuests = Number(data.guests||0);
-      // validar nombres de acompañantes
+      const nGuests = Number(data.guests||0);
       const names = (data.guestNames||'').split(/[,;]\s*/).map(s=>s.trim()).filter(Boolean);
-      if(selectedGuests>0 && names.length!==selectedGuests){
-        formMsg.innerHTML = '<span class="err">Indica exactamente los nombres de tus '+selectedGuests+' acompañantes (separados por coma o punto y coma).</span>';
-        return;
+      if(nGuests>0 && names.length!==nGuests){
+        formMsg.innerHTML='<span class="err">Indica exactamente los nombres de tus '+nGuests+' acompañantes (separados por coma o punto y coma).</span>'; return;
       }
-      if(selectedGuests > guestLimit){
-        formMsg.innerHTML = '<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>'; return;
-      }
+      if(nGuests>guestLimit){ formMsg.innerHTML='<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>'; return; }
       data.timestamp = new Date().toISOString();
       try{
-        const res = await fetch(WEDDING.rsvpEndpoint,{
-          method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)
-        });
-        if(!res.ok) throw new Error('error');
-        formMsg.innerHTML = '<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
+        const res = await fetch(WEDDING.rsvpEndpoint,{ method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data) });
+        if(!res.ok) throw 0;
+        formMsg.innerHTML='<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
         form.reset(); toggleGuestNames();
-      }catch(err){
-        formMsg.innerHTML = '<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>';
-      }
+      }catch{ formMsg.innerHTML='<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>'; }
     });
   </script>
 </body>
