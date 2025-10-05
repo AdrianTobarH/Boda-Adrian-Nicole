@@ -1,143 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Boda | Nicole Stefanie & Javier Adrián – 15 Mayo 2026</title>
-  <meta name="description" content="Invitación de boda de Nicole Stefanie Benalcazar García y Javier Adrián Tobar Hanze – 15/05/2026" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Boda | Nicole Stefanie & Javier Adrián – 15 Mayo 2026</title>
+<meta name="description" content="Invitación de boda de Nicole Stefanie Benalcazar García y Javier Adrián Tobar Hanze – 15/05/2026"/>
 
-  <style>
-    :root{
-      /* Paleta */
-      --vino:#8B1E2D;
-      --rosa:#E6B8B8;
-      --verde:#386641;
-      --tinta:#1F2937;
-      --papel:#FAF7F2;
+<!-- Tipografías -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
-      --shadow:0 10px 24px rgba(0,0,0,.12);
-      --radius:18px;
-    }
+<style>
+:root{
+  /* Paleta */
+  --accent:#8B1E2D;          /* vino tinto */
+  --accent-2:#E6B8B8;        /* rosado suave */
+  --leaf:#386641;            /* verde hoja */
+  --ink:#1F2937;             /* gris-azul texto */
+  --paper:#FAF7F2;           /* fondo papel */
+  --shadow:0 10px 22px rgba(0,0,0,.12);
+  --radius:18px;
 
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--papel);color:var(--tinta);scroll-behavior:smooth}
-    body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+  /* Foco de la foto superior: cambia solo esto y me dices el % exacto */
+  --top-photo-focus: 50% 55%;
+}
 
-    a{color:var(--vino);text-decoration:none}
-    .container{max-width:1000px;margin:auto;padding:20px}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,"Apple Color Emoji","Segoe UI Emoji";scroll-behavior:smooth}
+a{color:var(--accent);text-decoration:none}
+.container{max-width:1060px;margin:auto;padding:18px}
 
-    /* HERO */
-    header.hero{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
-    .hero-grid{display:grid;grid-template-columns:1.15fr 1fr}
-    .hero-left{background:linear-gradient(135deg,#f7e8ec,#f5efe8)}
-    .hero-right{padding:0}
+header.hero{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
+.hero-grid{display:grid;grid-template-columns:1fr 1.1fr}
 
-    /* Franja de foto arriba del contenido (recortada) */
-    .hero-toppic{
-      width:100%;
-      height:160px;               /* controla cuánto se recorta */
-      object-fit:cover;
-      object-position:center 35%;
-      display:block;
-      border-radius:0 0 0 0;
-    }
+/* Columna izquierda (fondo rosado suave) */
+.hero-left{background:linear-gradient(180deg,#f7e9ee 0%, #f4efea 100%);min-height:420px}
 
-    .hero-content{padding:24px 28px 34px}
-    .greet{margin:0 0 8px;color:#6b7280;text-align:center}
-    .names{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:.02em;font-size:clamp(28px,4vw,44px);text-align:center}
-    .amp{font-family:"Great Vibes",cursive;color:var(--vino);font-size:clamp(36px,6vw,64px);line-height:.9;display:inline-block;margin:0 .25em}
-    .subtitle{text-align:center;margin:6px 0 0;color:#596173}
-    .date{margin-top:14px;font-weight:700;color:var(--vino);letter-spacing:.28em;text-align:center}
+/* Foto franja superior */
+.hero-toppic{
+  width:100%; height:180px; display:block;
+  object-fit:cover; object-position:var(--top-photo-focus);
+  border-bottom-left-radius:var(--radius);
+  border-bottom-right-radius:var(--radius);
+}
 
-    /* Countdown centrado */
-    .countdown{display:flex;justify-content:center;gap:10px;margin:18px auto 0;max-width:600px}
-    .pill{flex:1;min-width:110px;text-align:center;background:var(--papel);border:1px solid #ece7df;border-radius:14px;padding:12px 8px}
-    .pill b{display:block;font-size:22px}
+.hero-content{padding:28px 28px 34px}
+.names{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:.02em;font-size:clamp(28px,4.6vw,44px);text-align:center}
+.amp{font-family:"Great Vibes",cursive;color:var(--accent);font-size:clamp(36px,6vw,68px);line-height:.9;display:inline-block;margin:0 .25em}
+.subtitle{margin:0;color:#6b7280;text-align:center}
+.date{margin-top:10px;font-weight:700;color:var(--accent);letter-spacing:.24em;text-align:center}
 
-    /* Acciones centradas */
-    .btn-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .btn{display:inline-block;background:var(--vino);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
-    .btn.ghost{background:#fff;color:var(--vino);border:2px solid var(--vino)}
+.countdown{display:flex;gap:10px;margin:16px auto 0;max-width:520px;justify-content:center}
+.pill{flex:1;min-width:90px;text-align:center;background:var(--paper);border:1px solid #ece7df;border-radius:14px;padding:12px 8px}
+.pill b{display:block;font-size:22px}
 
-    /* Sección portada full-viewport */
-    .portada{
-      margin:34px 0;
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      height:80vh;                /* “pantalla completa” – ajusta si quieres 100vh */
-      background:url("./photos/portada.jpg") center/cover no-repeat;
-      position:relative;
-    }
-    .portada::after{ /* sutil marco/blanqueo */
-      content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 6px rgba(255,255,255,.55);
-    }
+/* Secciones */
+.section{margin:36px 0}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+.two-col{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.title{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin:0 0 8px;text-align:center}
 
-    /* Tarjetas & secciones */
-    .section{margin:34px 0}
-    .two-col{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .title{font-family:"Playfair Display",serif;font-weight:700;font-size:26px;margin:0 0 8px;text-align:center}
-    .subtle{margin:0;color:#6b7280;text-align:center}
+/* Botones */
+.btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;text-decoration:none}
+.btn.ghost{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:14px}
 
-    .timeline{position:relative;margin:8px 0 0}
-    .timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--vino),transparent)}
-    .t-item{position:relative;padding-left:28px;margin:12px 0}
-    .t-dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--vino)}
+/* Itinerario (ejemplo) */
+.timeline{position:relative;margin-left:14px}
+.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
+.t-item{position:relative;padding-left:28px;margin:16px 0}
+.t-dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--accent)}
 
-    /* Música */
-    .music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--vino);color:var(--vino);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700}
-    .music-btn.playing{background:var(--vino);color:#fff}
+/* Galería portada full-bleed */
+.cover{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.cover img{width:100%;height:62vh;object-fit:cover;object-position:center}
 
-    /* RSVP oculto al inicio */
-    .hidden{display:none}
+/* Formularios */
+form label{display:block;font-weight:700;margin:12px 0 6px}
+input,select,textarea{width:100%;border:1px solid #e5e7eb;border-radius:10px;padding:12px;background:#fff}
+textarea{min-height:110px}
+.ok{color:#065f46;padding:12px 14px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:12px;text-align:center}
+.err{color:#9b1c1c;padding:12px 14px;background:#fef2f2;border:1px solid #fecaca;border-radius:12px;text-align:center}
 
-    /* Animar aparición */
-    .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease, transform .8s ease}
-    .reveal.show{opacity:1;transform:translateY(0)}
+/* Footer */
+footer{margin:36px 0 28px;text-align:center;color:#6b7280}
 
-    footer{margin:40px 0 28px;text-align:center;color:#6b7280}
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+.reveal.show{opacity:1;transform:none}
 
-    @media (max-width:980px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-left{min-height:240px}
-      .portada{height:65vh}
-      .pill{min-width:96px}
-    }
-  </style>
+/* Música flotante */
+.music-btn{position:fixed;right:16px;bottom:16px;background:#fff;border:2px solid var(--accent);color:var(--accent);border-radius:999px;padding:10px 14px;box-shadow:var(--shadow);font-weight:700;z-index:50}
+.music-btn.playing{background:var(--accent);color:#fff}
+
+/* Modal simple */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;padding:16px;z-index:60}
+.modal.show{display:flex}
+.modal-card{background:#fff;max-width:720px;width:100%;border-radius:16px;box-shadow:var(--shadow);padding:18px}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.modal-title{font-family:"Playfair Display",serif;font-size:22px;font-weight:700}
+.xbtn{background:transparent;border:0;font-size:22px;cursor:pointer;color:#6b7280}
+
+/* Lista de regalos */
+.gifts{display:grid;grid-template-columns:1fr;gap:10px}
+.gift{border:1px solid #eee;border-radius:12px;padding:12px 10px;display:flex;align-items:center;justify-content:space-between}
+.gift b{font-weight:700}
+.gift .mini{color:#6b7280;font-size:.92rem}
+
+/* Mobile layout tweaks */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-left{display:none;} /* quitamos el bloque rosado arriba en móvil */
+  .hero-toppic{height:220px;}
+}
+@media (max-width:768px){
+  .hero-toppic{height:260px;}
+}
+@media (max-width:420px){
+  .hero-toppic{
+    height:300px;                 /* si la ves muy recortada sube a 320-340 */
+    object-position:var(--top-photo-focus);
+  }
+  .cover img{height:64vh}
+}
+</style>
 </head>
+
 <body>
   <div class="container">
-
     <!-- HERO -->
     <header class="hero reveal">
       <div class="hero-grid">
-        <div class="hero-left" aria-hidden="true"></div>
-
-        <div class="hero-right">
-          <!-- Foto superior recortada -->
-          <img class="hero-toppic" src="./photos/Foto%20Principal.png" alt="Foto de los novios" loading="eager"/>
+        <div class="hero-left">
+          <!-- solo decorativo en desktop -->
+        </div>
+        <div>
+          <!-- Foto franja superior -->
+          <img class="hero-toppic" src="photos/Foto Principal.png" alt="Foto superior"/>
 
           <div class="hero-content">
-            <p class="greet">Queridos invitados</p>
+            <p class="subtitle">Queridos invitados</p>
+
             <h1 class="names">
               Nicole Stefanie <span class="amp">&</span> Javier Adrián
             </h1>
+
             <p class="subtitle">¡Nos casamos! Acompáñanos a celebrar nuestro amor.</p>
             <p class="date">15 · MAYO · 2026</p>
 
             <!-- Countdown -->
-            <div class="countdown" aria-label="Cuenta regresiva">
+            <div class="countdown">
               <div class="pill"><b id="dLeft">0</b><small>DÍAS</small></div>
               <div class="pill"><b id="hLeft">0</b><small>HORAS</small></div>
               <div class="pill"><b id="mLeft">0</b><small>MIN</small></div>
               <div class="pill"><b id="sLeft">0</b><small>SEG</small></div>
             </div>
 
-            <!-- Acciones -->
             <div class="btn-row">
               <a class="btn" id="addCalendar" href="#">Agregar al calendario</a>
               <a class="btn ghost" href="#confirmar">Confirmar asistencia</a>
@@ -147,29 +166,31 @@
       </div>
     </header>
 
-    <!-- PORTADA A PANTALLA COMPLETA -->
-    <section class="portada reveal" aria-label="Portada fotográfica"></section>
+    <!-- PORTADA A PANTALLA -->
+    <section class="section cover reveal">
+      <img src="photos/portada.jpg" alt="Portada de los novios">
+    </section>
 
     <!-- CEREMONIA / RECEPCIÓN -->
-    <section class="two-col section">
+    <section class="section two-col">
       <article class="card reveal">
         <h2 class="title">Ceremonia</h2>
-        <p class="subtle">16:00 · Iglesia Casa de Fé</p>
-        <p style="text-align:center">
-          Será un momento íntimo y especial en el que uniremos nuestras vidas ante Dios y nuestras familias. 
-          Nos hará muy felices sentir su abrazo y sus oraciones cuando digamos <b>“sí, acepto”</b>.
+        <p class="subtitle">16:00 · Iglesia Casa de Fé</p>
+        <p style="text-align:center;max-width:540px;margin:8px auto 0">
+          Será un momento íntimo y especial en el que uniremos nuestras vidas ante Dios y nuestras familias.
+          Nos hará muy felices sentir su abrazo y sus oraciones cuando digamos “sí, acepto”.
         </p>
         <div class="btn-row"><a class="btn" id="ceremonyMap" href="#" target="_blank" rel="noopener">Ver mapa</a></div>
       </article>
 
       <article class="card reveal">
         <h2 class="title">Recepción</h2>
-        <p class="subtle">20:00 · Lugar por confirmar</p>
-        <p style="text-align:center">
+        <p class="subtitle">20:00 · Lugar por confirmar</p>
+        <p style="text-align:center;max-width:540px;margin:8px auto 0">
           Después de la ceremonia, celebremos bailando y brindando por el amor.
         </p>
-        <p class="subtle"><b>No niños</b></p>
-        <p style="text-align:center">
+        <p style="text-align:center;margin:8px 0 0"><b>No niños</b></p>
+        <p class="subtitle" style="text-align:center">
           Amamos a los niños, pero hemos reservado sitios solo para adultos. <em>Niños, dulces sueños.</em>
         </p>
         <div class="btn-row"><a class="btn" id="receptionMap" href="#" target="_blank" rel="noopener">Ver mapa</a></div>
@@ -177,18 +198,20 @@
     </section>
 
     <!-- CÓDIGO DE VESTIMENTA / ITINERARIO -->
-    <section class="two-col section">
+    <section class="section two-col">
       <article class="card reveal">
         <h2 class="title">Código de vestimenta</h2>
-        <p style="text-align:center"><b>Formal</b></p>
-        <p style="text-align:center"><b>Hombres:</b> de traje · evitar azul claro.</p>
-        <p style="text-align:center"><b>Mujeres:</b> de vestido largo · evitar vestidos rojo, beige, plateado, crema y gris.</p>
-        <p class="subtle">Reservamos el blanco para la novia.</p>
+        <div style="max-width:640px;margin:0 auto;text-align:center">
+          <p><b>Formal</b></p>
+          <p><b>Hombres:</b> de traje · evitar azul claro.</p>
+          <p><b>Mujeres:</b> de vestido largo · evitar vestidos rojo, beige, plateado, crema y gris.</p>
+          <p>Reservamos el blanco para la novia.</p>
+        </div>
       </article>
 
       <article class="card reveal">
         <h2 class="title">Itinerario</h2>
-        <div class="timeline">
+        <div class="timeline" style="max-width:520px;margin:0 auto">
           <div class="t-item"><span class="t-dot"></span><b>16:00</b> – Ceremonia</div>
           <div class="t-item"><span class="t-dot"></span><b>19:30</b> – Traslado y fotos</div>
           <div class="t-item"><span class="t-dot"></span><b>20:00</b> – Recepción</div>
@@ -198,108 +221,222 @@
       </article>
     </section>
 
-    <!-- CTA RSVP -->
-    <section id="confirmar" class="section">
-      <article class="card reveal" style="text-align:center">
+    <!-- MESA DE REGALOS / FOTOS -->
+    <section class="section two-col">
+      <article class="card reveal">
+        <h2 class="title">Mesa de regalos</h2>
+        <p class="subtitle" style="max-width:680px;margin:0 auto">
+          Tu presencia es nuestro mejor regalo. Para quienes deseen acompañarnos también con un detalle,
+          hemos preparado una lista de artículos del hogar. Si lo prefieren, pueden hacerlo con sobre cerrado.
+          ¡Gracias por su cariño!
+        </p>
+        <div class="btn-row">
+          <button class="btn" id="openGifts">Ver lista de regalos</button>
+          <button class="btn ghost" id="openBank">Ver datos para transferencia</button>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <h2 class="title">Comparte tus fotografías</h2>
+        <p class="subtitle" style="max-width:680px;margin:0 auto">
+          Ayúdanos a guardar cada instante especial. Sube aquí tus fotos de la boda y comparte con nosotros tus favoritos.
+        </p>
+        <div class="btn-row">
+          <a class="btn" id="photosLink" href="https://example.com/fotos" target="_blank" rel="noopener">Abrir carpeta de fotos</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ABRIR RSVP -->
+    <section id="confirmar" class="section reveal">
+      <article class="card" style="text-align:center">
         <h2 class="title">¿Nos acompañas?</h2>
-        <p class="subtle">Pulsa el botón para confirmar y abrir el formulario.</p>
+        <p class="subtitle">Pulsa el botón para confirmar y abrir el formulario.</p>
         <div class="btn-row"><button class="btn" id="openRSVP">Confirmar asistencia</button></div>
       </article>
     </section>
 
-    <!-- RSVP (oculto al inicio) -->
-    <section id="rsvp" class="section hidden">
+    <!-- RSVP (OCULTO) -->
+    <section id="rsvp" class="section reveal" style="display:none">
       <article class="card">
         <h2 class="title">Confirmar asistencia</h2>
-        <p class="subtle">Completa el formulario. Recibirás un correo con tu confirmación.</p>
+        <p class="subtitle" style="text-align:center">Completa el formulario. Recibirás un correo con tu confirmación.</p>
 
         <form id="rsvpForm" style="max-width:900px;margin:0 auto">
           <div class="two-col">
             <div>
               <label>Nombre completo</label>
-              <input id="name" name="name" required style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px"/>
+              <input name="name" id="name" required/>
             </div>
             <div>
               <label>Email</label>
-              <input id="email" type="email" name="email" required style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px"/>
+              <input type="email" name="email" id="email" required/>
             </div>
           </div>
 
-          <div class="two-col" style="margin-top:10px">
+          <div class="two-col">
             <div>
               <label>Teléfono</label>
-              <input id="phone" name="phone" style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px"/>
+              <input name="phone" id="phone"/>
             </div>
             <div>
               <label>Número de acompañantes</label>
-              <select id="guests" name="guests" style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px">
+              <select name="guests" id="guests">
                 <option value="0">Sólo yo</option>
-                <option value="1">+1</option>
-                <option value="2">+2</option>
-                <option value="3">+3</option>
+                <option value="1">1 invitado</option>
+                <option value="2">2 invitados</option>
+                <option value="3">3 invitados</option>
               </select>
-              <p class="subtle">Límite permitido: <span id="guestLimitLabel">0</span></p>
+              <small class="subtitle">Límite permitido: <span id="guestLimitLabel">0</span></small>
             </div>
           </div>
 
-          <div class="two-col" style="margin-top:10px">
+          <div id="guestNamesWrap" style="display:none">
+            <label>Nombres de acompañantes</label>
+            <textarea name="guestNames" id="guestNames" placeholder="Ej.: Juan Pérez; María Gómez"></textarea>
+          </div>
+
+          <div class="two-col">
             <div>
               <label>¿Asistirás?</label>
-              <select id="attending" name="attending" required style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px">
-                <option>Sí</option><option>No</option><option>Quizá</option>
+              <select name="attending" id="attending" required>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+                <option value="Quizá">Quizá</option>
               </select>
             </div>
             <div>
               <label>Preferencias alimentarias</label>
-              <input id="diet" name="diet" placeholder="Vegetariano, alergias, etc." style="width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px"/>
+              <input name="diet" id="diet" placeholder="Vegetariano, alergias, etc."/>
             </div>
           </div>
 
-          <div id="guestNamesWrap" style="margin-top:10px">
-            <label>Nombres de acompañantes</label>
-            <textarea id="guestNames" name="guestNames" placeholder="Ej.: Juan Pérez; María Gómez" style="width:100%;min-height:110px;padding:12px;border:1px solid #e5e7eb;border-radius:10px"></textarea>
-          </div>
+          <label>Mensaje</label>
+          <textarea name="message" id="message" placeholder="Déjanos unas palabras…"></textarea>
 
-          <label style="margin-top:10px;display:block">Mensaje</label>
-          <textarea id="message" name="message" placeholder="Déjanos unas palabras…" style="width:100%;min-height:110px;padding:12px;border:1px solid #e5e7eb;border-radius:10px"></textarea>
-
-          <input type="hidden" id="invitee" name="invitee"/>
-          <input type="hidden" id="code" name="code"/>
+          <input type="hidden" name="invitee" id="invitee"/>
+          <input type="hidden" name="code" id="code"/>
 
           <div class="btn-row" style="margin-top:14px">
             <button class="btn" type="submit">Enviar confirmación</button>
             <button class="btn ghost" type="reset">Limpiar</button>
           </div>
-          <p id="formMsg" class="subtle" style="margin-top:10px"></p>
+          <p id="formMsg" style="margin-top:14px"></p>
         </form>
       </article>
     </section>
 
-    <footer class="reveal">Con amor, <b>Nicole Stefanie & Javier Adrián</b> • 15 mayo 2026</footer>
+    <footer class="reveal">
+      Con amor, <b>Nicole Stefanie & Javier Adrián</b> • 15 mayo 2026
+    </footer>
   </div>
 
-  <!-- Música -->
-  <audio id="music" preload="auto" src="./music/die-with-a-smile.m4a"></audio>
+  <!-- AUDIO + BOTÓN -->
+  <audio id="music" preload="auto" src=""></audio>
   <button id="musicBtn" class="music-btn" aria-label="Reproducir música">♪</button>
 
-  <script>
-    /* ===== Config ===== */
-    const WEDDING = {
-      dateISO: "2026-05-15T16:00:00-05:00",
-      ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
-      receptionMap: "#"
-    };
+  <!-- MODAL REGALOS -->
+  <div class="modal" id="giftsModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title">Lista de regalos</div>
+        <button class="xbtn" data-close="giftsModal">×</button>
+      </div>
+      <div id="giftsBody">
+        <div class="gifts" id="giftsList">
+          <!-- items por JS -->
+        </div>
+      </div>
+    </div>
+  </div>
 
-    // Map links
-    document.getElementById('ceremonyMap').href = WEDDING.ceremonyMap;
-    document.getElementById('receptionMap').href = WEDDING.receptionMap;
+  <!-- MODAL DATOS BANCARIOS -->
+  <div class="modal" id="bankModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div class="modal-title">Datos para transferencias</div>
+        <button class="xbtn" data-close="bankModal">×</button>
+      </div>
+      <div>
+        <div class="card" style="box-shadow:none;border:1px dashed #e6dede">
+          <div style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:8px">Banco Guayaquil</div>
+          <div>Cuenta de Ahorros <b>#3782519</b></div>
+        </div>
+        <div class="card" style="box-shadow:none;border:1px dashed #e6dede;margin-top:10px">
+          <div style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:8px">Produbanco</div>
+          <div>Cuenta de Ahorros <b>#20000521092</b></div>
+        </div>
+        <div class="card" style="box-shadow:none;border:1px dashed #e6dede;margin-top:10px">
+          <div style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:8px">Banco de Pichincha</div>
+          <div>Cuenta Corriente <b>#2100271621</b></div>
+        </div>
+        <div class="card" style="box-shadow:none;border:1px dashed #e6dede;margin-top:10px">
+          <div><b>Nombre:</b> Javier Adrián Tobar Hanze</div>
+          <div><b>Cédula:</b> 0940960370</div>
+          <div><b>Correo:</b> adriantobar97@gmail.com</div>
+          <div><b>Celular:</b> 0999170015</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    // Fecha al .ics
-    function buildICS(){
-      const start = new Date(WEDDING.dateISO);
-      const end = new Date(start.getTime()+2*60*60*1000);
-      const dt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
-      const ics = `BEGIN:VCALENDAR
+<script>
+/* =================== CONFIG =================== */
+const WEDDING = {
+  couple: { bride:"Nicole Stefanie Benalcazar García", groom:"Javier Adrián Tobar Hanze" },
+  dateISO: "2026-05-15T16:00:00-05:00",
+  ceremonyMap: "https://maps.google.com/?q=Iglesia%20Casa%20de%20F%C3%A9",
+  receptionMap: "#",
+  photosFolder: "https://example.com/fotos",
+
+  // ENDPOINTS
+  rsvpEndpoint: "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL",
+  giftsEndpoint: "", // cuando tengas Apps Script para regalos, colócalo aquí
+
+  // Música: cambia SOLO esta línea si usas otro nombre/ubicación
+  musicSrc: "music/die-with-a-smile.m4a",
+
+  // Límite por defecto (puedes cargar por invitado con ?to= y setear con JS)
+  defaultGuestLimit: 0
+};
+
+/* Querystring: ?to=Nombre&code=ABC */
+const params = new URLSearchParams(location.search);
+const to = params.get('to'); const code = params.get('code');
+if (to) {
+  document.getElementById('name').value = to;
+  document.getElementById('invitee').value = to;
+}
+if (code) document.getElementById('code').value = code;
+
+/* =================== COUNTDOWN =================== */
+const dEl = document.getElementById('dLeft');
+const hEl = document.getElementById('hLeft');
+const mEl = document.getElementById('mLeft');
+const sEl = document.getElementById('sLeft');
+function updateCountdown(){
+  const target = new Date(WEDDING.dateISO).getTime();
+  const now = Date.now();
+  let diff = Math.max(0, target - now);
+  const d = Math.floor(diff/86400000); diff -= d*86400000;
+  const h = Math.floor(diff/3600000); diff -= h*3600000;
+  const m = Math.floor(diff/60000);   diff -= m*60000;
+  const s = Math.floor(diff/1000);
+  dEl.textContent=d; hEl.textContent=h; mEl.textContent=m; sEl.textContent=s;
+}
+setInterval(updateCountdown,1000); updateCountdown();
+
+/* =================== LINKS =================== */
+document.getElementById('ceremonyMap').href = WEDDING.ceremonyMap;
+document.getElementById('receptionMap').href = WEDDING.receptionMap;
+document.getElementById('photosLink').href = WEDDING.photosFolder;
+
+/* =================== ADD TO CALENDAR =================== */
+function buildICS(){
+  const start = new Date(WEDDING.dateISO);
+  const end = new Date(start.getTime() + 2*60*60*1000);
+  const dt = d => d.toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+  const ics = `BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Boda//ES
 BEGIN:VEVENT
@@ -307,99 +444,140 @@ UID:${Date.now()}@boda
 DTSTAMP:${dt(new Date())}
 DTSTART:${dt(start)}
 DTEND:${dt(end)}
-SUMMARY:Boda de Nicole Stefanie y Javier Adrián
+SUMMARY:Boda de ${WEDDING.couple.groom} y ${WEDDING.couple.bride}
 LOCATION:Iglesia Casa de Fé
 DESCRIPTION:¡Acompáñanos a celebrar!
 END:VEVENT
 END:VCALENDAR`;
-      return 'data:text/calendar;charset=utf8,'+encodeURIComponent(ics);
+  return 'data:text/calendar;charset=utf8,'+encodeURIComponent(ics);
+}
+document.getElementById('addCalendar').href = buildICS();
+
+/* =================== REVEAL ON SCROLL =================== */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach((e)=>{
+    if(e.isIntersecting){
+      requestAnimationFrame(()=>{ e.target.classList.add('show'); });
+      io.unobserve(e.target);
     }
-    document.getElementById('addCalendar').href = buildICS();
+  });
+},{ root:null, rootMargin:'0px 0px -10%', threshold:0.15 });
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // Countdown
-    const ids = ['dLeft','hLeft','mLeft','sLeft'].map(id=>document.getElementById(id));
-    function tick(){
-      const t = new Date(WEDDING.dateISO).getTime() - Date.now();
-      const s0 = Math.max(0,Math.floor(t/1000));
-      const d = Math.floor(s0/86400);
-      const h = Math.floor((s0%86400)/3600);
-      const m = Math.floor((s0%3600)/60);
-      const s = s0%60;
-      ids[0].textContent=d; ids[1].textContent=h; ids[2].textContent=m; ids[3].textContent=s;
+/* =================== MÚSICA =================== */
+const music = document.getElementById('music');
+const musicBtn = document.getElementById('musicBtn');
+music.src = WEDDING.musicSrc;
+music.loop = true;
+let triedAuto = false;
+
+function tryPlayOnce(){
+  if(triedAuto) return;
+  triedAuto = true;
+  music.play().then(()=> musicBtn.classList.add('playing')).catch(()=>{ /* bloqueado por navegador */ });
+}
+['click','touchstart','scroll','keydown'].forEach(ev=>window.addEventListener(ev, tryPlayOnce, {once:true}));
+
+musicBtn.addEventListener('click', ()=>{
+  if(music.paused){ music.play(); musicBtn.classList.add('playing'); }
+  else{ music.pause(); musicBtn.classList.remove('playing'); }
+});
+
+/* =================== MODALES =================== */
+const giftsModal = document.getElementById('giftsModal');
+const bankModal  = document.getElementById('bankModal');
+document.getElementById('openGifts').onclick = ()=> giftsModal.classList.add('show');
+document.getElementById('openBank').onclick  = ()=> bankModal.classList.add('show');
+document.querySelectorAll('[data-close="giftsModal"]').forEach(b=>b.onclick=()=>giftsModal.classList.remove('show'));
+document.querySelectorAll('[data-close="bankModal"]').forEach(b=>b.onclick = ()=>bankModal.classList.remove('show'));
+[giftsModal,bankModal].forEach(m => m.addEventListener('click',e=>{ if(e.target===m) m.classList.remove('show'); }));
+
+/* =================== LISTA DE REGALOS =================== */
+(async ()=>{
+  const listEl = document.getElementById('giftsList');
+  listEl.innerHTML = '';
+  try{
+    if(WEDDING.giftsEndpoint){
+      const res = await fetch(WEDDING.giftsEndpoint, {mode:'cors'});
+      if(!res.ok) throw new Error('No se pudo leer');
+      const items = await res.json(); // [{id,name,link,reservedBy,reservedEmail,reservedAt}, ...]
+      (Array.isArray(items)?items:[]).forEach(it=>{
+        const li = document.createElement('div'); li.className='gift';
+        li.innerHTML = `<div><b>${it.name||''}</b><div class="mini">${it.reservedBy?('Reservado por '+it.reservedBy):'Disponible'}</div></div>`;
+        const a = document.createElement('a');
+        a.className='btn ghost'; a.target='_blank'; a.rel='noopener';
+        a.href = it.link || '#'; a.textContent = it.reservedBy ? 'Ver' : 'Reservar';
+        li.appendChild(a); listEl.appendChild(li);
+      });
+    } else {
+      // Fallback de ejemplo
+      ['Lavadora','Secadora','Cocina'].forEach(n=>{
+        const li = document.createElement('div'); li.className='gift';
+        li.innerHTML = `<div><b>${n}</b><div class="mini">Disponible</div></div>`;
+        const a = document.createElement('a');
+        a.className='btn ghost'; a.href='#'; a.textContent='Ver';
+        li.appendChild(a); listEl.appendChild(li);
+      });
     }
-    tick(); setInterval(tick,1000);
+  }catch(err){
+    listEl.innerHTML = '<div class="err">No se pudo cargar la lista de regalos.</div>';
+  }
+})();
 
-    // Animaciones "reveal"
-    const io = new IntersectionObserver(es=>{
-      es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} })
-    },{threshold:.12});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* =================== RSVP =================== */
+const openBtn = document.getElementById('openRSVP');
+const rsvpSec = document.getElementById('rsvp');
+openBtn.addEventListener('click', ()=>{
+  rsvpSec.style.display='block';
+  rsvpSec.scrollIntoView({behavior:'smooth'});
+  tryPlayOnce(); // arranca música al primer gesto
+});
 
-    // Mostrar RSVP
-    const openBtn = document.getElementById('openRSVP');
-    openBtn.addEventListener('click', ()=>{
-      document.getElementById('rsvp').classList.remove('hidden');
-      document.getElementById('rsvp').scrollIntoView({behavior:'smooth'});
-      try{ music.play(); musicBtn.classList.add('playing'); }catch{}
+// límite y nombres dinámicos
+let guestLimit = WEDDING.defaultGuestLimit;
+document.getElementById('guestLimitLabel').textContent = guestLimit;
+const guestsSel = document.getElementById('guests');
+const guestNamesWrap = document.getElementById('guestNamesWrap');
+guestsSel.addEventListener('change', ()=>{
+  guestNamesWrap.style.display = (Number(guestsSel.value||0)>0) ? 'block':'none';
+});
+
+// envío
+const form = document.getElementById('rsvpForm');
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const formMsg = document.getElementById('formMsg');
+  formMsg.textContent = 'Enviando…'; formMsg.className='subtitle';
+
+  const data = Object.fromEntries(new FormData(form).entries());
+  const selectedGuests = Number(data.guests||0);
+  const names = (data.guestNames||'').split(/[,;]+/).map(s=>s.trim()).filter(Boolean);
+
+  if(selectedGuests>0 && names.length !== selectedGuests){
+    formMsg.innerHTML = '<span class="err">Indica exactamente los nombres de tus '+selectedGuests+' acompañantes (separados por coma o punto y coma).</span>';
+    return;
+  }
+  if(selectedGuests > guestLimit){
+    formMsg.innerHTML = '<span class="err">Tu límite de acompañantes es '+guestLimit+'.</span>';
+    return;
+  }
+  data.timestamp = new Date().toISOString();
+
+  try{
+    const res = await fetch(WEDDING.rsvpEndpoint,{
+      method:'POST',
+      mode:'cors',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(data)
     });
-
-    // Ocultar "Nombres de acompañantes" cuando es “Sólo yo”
-    const guestsSel = document.getElementById('guests');
-    const guestWrap = document.getElementById('guestNamesWrap');
-    const limitEl = document.getElementById('guestLimitLabel');
-    const guestLimit = 0; // puedes actualizar por persona con querystring o por hoja
-    limitEl.textContent = guestLimit;
-    function toggleGuestNames(){
-      guestWrap.style.display = (guestsSel.value === '0') ? 'none' : 'block';
-    }
-    guestsSel.addEventListener('change', toggleGuestNames); toggleGuestNames();
-
-    // Música: reproducción al primer gesto + botón ♪
-    const music = document.getElementById('music');
-    const musicBtn = document.getElementById('musicBtn');
-    music.loop = true;
-    const unlockAudio = ()=>{
-      music.play().then(()=>musicBtn.classList.add('playing')).catch(()=>{});
-      window.removeEventListener('pointerdown',unlockAudio,{once:true});
-      window.removeEventListener('keydown',unlockAudio,{once:true});
-    };
-    window.addEventListener('pointerdown',unlockAudio,{once:true});
-    window.addEventListener('keydown',unlockAudio,{once:true});
-    musicBtn.addEventListener('click', ()=>{
-      if(music.paused){ music.play(); musicBtn.classList.add('playing'); }
-      else{ music.pause(); musicBtn.classList.remove('playing'); }
-    });
-
-    // RSVP (solo interfaz; tu Apps Script puede conectarse igual que antes)
-    const form = document.getElementById('rsvpForm');
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const msg = document.getElementById('formMsg');
-      msg.textContent = 'Enviando…';
-      const data = Object.fromEntries(new FormData(form).entries());
-      const guests = Number(data.guests||0);
-      const names = (data.guestNames||'').split(/[,;]\s*/).filter(Boolean);
-      if(guests>0 && names.length!==guests){
-        msg.textContent = `Indica exactamente ${guests} nombre(s) de acompañante.`;
-        msg.style.color = '#8B1E2D';
-        return;
-      }
-      if(guests>guestLimit){
-        msg.textContent = `Tu límite de acompañantes es ${guestLimit}.`;
-        msg.style.color = '#8B1E2D';
-        return;
-      }
-      // => aquí invocarías tu endpoint Apps Script si lo deseas
-      msg.textContent = '¡Recibido! Gracias por confirmar.';
-      msg.style.color = '#065f46';
-      form.reset(); toggleGuestNames();
-    });
-
-    // Personalización por query (?to=Nombre&code=XYZ)
-    const params = new URLSearchParams(location.search);
-    const to = params.get('to'); const code = params.get('code');
-    if(to){ document.getElementById('name').value = to; document.getElementById('invitee').value = to; }
-    if(code){ document.getElementById('code').value = code; }
-  </script>
+    if(!res.ok) throw new Error('No se pudo enviar');
+    formMsg.innerHTML = '<span class="ok">¡Recibido! Te llegará un correo de confirmación pronto.</span>';
+    form.reset();
+    guestNamesWrap.style.display='none';
+  }catch(err){
+    formMsg.innerHTML = '<span class="err">Ocurrió un error. Intenta nuevamente o contáctanos.</span>';
+  }
+});
+</script>
 </body>
 </html>
